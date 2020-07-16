@@ -1,0 +1,10 @@
+.navigation-bar-img-wrapper {
+  margin-left: 20rpx;
+  width: calc(100vw - 250rpx);
+  .navigation-bar-img {
+    max-width: 100%;
+    max-height: 80rpx;
+    margin: 0 auto;
+    display: block;
+  }
+}
