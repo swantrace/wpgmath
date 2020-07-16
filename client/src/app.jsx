@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import Index from "./pages/index";
+import Index from "./packageIndex/pages/index/index";
 
 import "./app.scss";
 
@@ -23,8 +23,60 @@ class App extends Component {
   componentDidCatchError() {}
 
   config = {
-    entryPagePath: "pages/home/home",
-    pages: ["pages/index/index", "pages/home/home"],
+    entryPagePath: "packageHome/pages/home/index",
+    functionalPages: true,
+    debug: true,
+    subPackages: [
+      {
+        root: "packageHome",
+        name: "home_page",
+        pages: ["pages/home/index"]
+      },
+      {
+        root: "packageTeachers",
+        name: "teachers_page",
+        pages: ["pages/teachers/index"]
+      },
+      {
+        root: "packageStudents",
+        name: "students_page",
+        pages: ["pages/students/index"]
+      },
+      {
+        root: "packageReviews",
+        name: "reviews_page",
+        pages: ["pages/reviews/index"]
+      },
+      {
+        root: "packageVideos",
+        name: "videos_page",
+        pages: ["pages/videos/index"]
+      },
+      {
+        root: "packageVideo",
+        name: "video_page",
+        pages: ["pages/video/index"]
+      },
+      {
+        root: "packageMethod",
+        name: "method_page",
+        pages: ["pages/method/index"]
+      },
+      {
+        root: "packageContact",
+        name: "contact_page",
+        pages: ["pages/contact/index"]
+      },
+      {
+        root: "packageHistory",
+        name: "history_page",
+        pages: ["pages/history/index"]
+      }
+    ],
+    plugins: {},
+    preloadRule: {},
+    usingComponents: {},
+    pages: ["pages/index/index"],
     window: {
       navigationStyle: "custom"
     },

@@ -11,7 +11,7 @@ export default function NavigationBar() {
         <View className="navigation-bar-img-wrapper">
           <Image
             src={navigationBar}
-            mode="aspectFit"
+            mode="widthFix"
             className="navigation-bar-img"
           />
         </View>
