@@ -10,6 +10,10 @@ import "./app.scss";
 // }
 
 class App extends Component {
+  componentWillMount() {
+    console.log(this.$router.params);
+  }
+
   componentDidMount() {
     if (process.env.TARO_ENV === "weapp") {
       Taro.cloud.init();
@@ -79,6 +83,11 @@ class App extends Component {
     pages: ["pages/index/index"],
     window: {
       navigationStyle: "custom"
+    },
+    permission: {
+      "scope.userLocation": {
+        desc: "你的位置信息将用于小程序位置接口的效果展示"
+      }
     },
     cloud: true
   };

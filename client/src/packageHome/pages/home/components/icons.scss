@@ -1,0 +1,17 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+
+.icons-wrapper {
+  margin-top: 20rpx;
+  .icon-title-wrapper {
+    padding: 10rpx 0 30rpx;
+    display: flex;
+    flex-wrap: no-wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      margin-top: 10rpx;
+      font-size: 24rpx;
+    }
+  }
+}

@@ -8,11 +8,11 @@ export default function NavigationBar() {
   return (
     <NavBar
       renderLeft={
-        <View className="navigation-bar-img-wrapper">
+        <View className='navigation-bar-img-wrapper'>
           <Image
             src={navigationBar}
-            mode="widthFix"
-            className="navigation-bar-img"
+            mode='widthFix'
+            className='navigation-bar-img'
           />
         </View>
       }

@@ -6,7 +6,7 @@
       1,
       { "extensions": [".js", ".jsx", ".tsx"] }
     ],
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-single"]
   },
   "parser": "babel-eslint"
 }
