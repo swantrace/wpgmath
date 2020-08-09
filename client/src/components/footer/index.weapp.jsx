@@ -12,7 +12,7 @@ import selectedTeachInfo from "../../assets/images/selected_teach-info.png";
 import "./footer.scss";
 
 export default function Footer(props) {
-  const current = props.current;
+  const current = parseInt(props.current);
   function handleClick(goal) {
     if (current !== goal) {
       switch (goal) {

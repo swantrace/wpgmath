@@ -47,9 +47,9 @@ class App extends Component {
         pages: ["pages/students/index"]
       },
       {
-        root: "packageReviews",
-        name: "reviews_page",
-        pages: ["pages/reviews/index"]
+        root: "packageQuestions",
+        name: "questions_page",
+        pages: ["pages/questions/index"]
       },
       {
         root: "packageVideos",
@@ -78,7 +78,53 @@ class App extends Component {
       }
     ],
     plugins: {},
-    preloadRule: {},
+    preloadRule: {
+      "packageHome/pages/home/index": {
+        network: "all",
+        packages: [
+          "teachers_page",
+          "students_page",
+          "questions_page",
+          "videos_page",
+          "method_page",
+          "contact_page",
+          "contact_page",
+          "history_page"
+        ]
+      },
+      "packageTeachers/pages/teachers/index": {
+        network: "all",
+        packages: ["home_page"]
+      },
+      "packageStudents/pages/students/index": {
+        network: "all",
+        packages: ["home_page"]
+      },
+      "packageQuestions/pages/questions/index": {
+        network: "all",
+        packages: ["home_page"]
+      },
+      "packageVideos/pages/videos/index": {
+        network: "all",
+        packages: ["home_page", "video_page"]
+      },
+      "packageVideo/pages/video/index": {
+        network: "all",
+        packages: ["home_page", "videos_page"]
+      },
+      "packageMethod/pages/method/index": {
+        network: "all",
+        packages: ["home_page", "history_page", "contact_page"]
+      },
+      "packageHistory/pages/history/index": {
+        network: "all",
+        packages: ["home_page", "method_page", "contact_page"]
+      },
+      "packageContact/pages/contact/index": {
+        network: "all",
+        packages: ["home_page", "method_page", "history_page"]
+      }
+    },
     usingComponents: {},
     pages: ["pages/index/index"],
     window: {

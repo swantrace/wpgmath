@@ -1,11 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Image } from "@tarojs/components";
-import NavigationBar from "../../../components/navigationbar/index.weapp";
-import Header from "../../../components/header/index.weapp";
-import CustomerServiceButton from "../../../components/customer-service-button/index.weapp";
-import OneOnOneButton from "../../../components/oneonone/index.weapp";
+import Layout from "../../../components/layout/index.weapp";
 import HomeSwiper from "./components/swiper";
-import Footer from "../../../components/footer/index.weapp";
 import Icons from "./components/icons";
 import News from "./components/news";
 import divider from "../../../assets/images/line.png";
@@ -24,9 +20,7 @@ export default class Home extends Component {
   }
   render() {
     return (
-      <View className='home'>
-        <NavigationBar />
-        <Header className='header' />
+      <Layout page-class='home' currentTabNumber='0' isHome>
         <View className='main-content'>
           <HomeSwiper />
           <View className='divider-wrapper'>
@@ -38,11 +32,8 @@ export default class Home extends Component {
           <View className='news-wrapper'>
             <News />
           </View>
-          <OneOnOneButton />
-          <CustomerServiceButton />
         </View>
-        <Footer current={0} />
-      </View>
+      </Layout>
     );
   }
 }

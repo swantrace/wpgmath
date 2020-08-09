@@ -1,13 +1,14 @@
-import Taro from "@tarojs/taro";
+import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
-import NavigationBar from "../../../components/navigationbar/index.weapp";
+import Layout from "../../../components/layout/index.weapp";
 import "./students.scss";
 
-export default function Students() {
-  return (
-    <View>
-      <NavigationBar />
-      Students
-    </View>
-  );
+export default class Students extends Component {
+  render() {
+    return (
+      <Layout page-class='students'>
+        <View className='main-content-2'>students</View>
+      </Layout>
+    );
+  }
 }

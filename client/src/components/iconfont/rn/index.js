@@ -1,6 +1,9 @@
 /* eslint-disable */
 
 
+import IconBack from './IconBack';
+import IconDizhidingwei from './IconDizhidingwei';
+import IconActivity from './IconActivity';
 import IconArrowright from './IconArrowright';
 import IconArrowleft from './IconArrowleft';
 import IconTeachInfo from './IconTeachInfo';
@@ -21,6 +24,12 @@ import IconSelectdefault from './IconSelectdefault';
 
 const IconFont = ({ name, ...rest }) => {
   switch (name) {
+    case 'back':
+      return <IconBack {...rest} />;
+    case 'dizhidingwei':
+      return <IconDizhidingwei {...rest} />;
+    case 'activity':
+      return <IconActivity {...rest} />;
     case 'Arrowright':
       return <IconArrowright {...rest} />;
     case 'Arrowleft':

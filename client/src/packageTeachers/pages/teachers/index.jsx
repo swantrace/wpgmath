@@ -1,13 +1,14 @@
-import Taro from "@tarojs/taro";
+import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
-import NavigationBar from "../../../components/navigationbar/index.weapp";
+import Layout from "../../../components/layout/index.weapp";
 import "./teachers.scss";
 
-export default function Teachers() {
-  return (
-    <View>
-      <NavigationBar />
-      Teachers
-    </View>
-  );
+export default class Teachers extends Component {
+  render() {
+    return (
+      <Layout page-class='teachers' title='优秀教师团队'>
+        <View className='main-content-2'>teachers</View>
+      </Layout>
+    );
+  }
 }

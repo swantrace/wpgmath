@@ -1,13 +1,14 @@
-import Taro from "@tarojs/taro";
+import Taro, { Component } from "@tarojs/taro";
 import { View } from "@tarojs/components";
-import NavigationBar from "../../../components/navigationbar/index.weapp";
+import Layout from "../../../components/layout/index.weapp";
 import "./video.scss";
 
-export default function Video() {
-  return (
-    <View>
-      <NavigationBar />
-      Video
-    </View>
-  );
+export default class VideoItem extends Component {
+  render() {
+    return (
+      <Layout page-class='video'>
+        <View className='main-content-2'>VideoItem</View>
+      </Layout>
+    );
+  }
 }

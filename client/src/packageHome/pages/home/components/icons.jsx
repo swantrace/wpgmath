@@ -11,7 +11,7 @@ export default function Icons() {
       title: "优秀教师"
     },
     {
-      icon: "student",
+      icon: "activity",
       title: "学员活动"
     },
     {
@@ -40,7 +40,30 @@ export default function Icons() {
     }
   ];
   function handleClick(goal) {
-    console.log(goal);
+    switch (goal) {
+      case "custom-teacher":
+        Taro.redirectTo({ url: "/packageTeachers/pages/teachers/index" });
+        break;
+      case "activity":
+        Taro.redirectTo({ url: "/packageStudents/pages/students/index" });
+        break;
+      case "Share":
+        break;
+      case "video":
+        Taro.redirectTo({ url: "/packageVideos/pages/videos/index" });
+        break;
+      case "shoucex":
+        break;
+      case "question":
+        Taro.redirectTo({ url: "/packageQuestions/pages/questions/index" });
+        break;
+      case "SCHEDULE":
+        break;
+      case "travelholidayvacat":
+        break;
+      default:
+        break;
+    }
   }
   return (
     <View className='icons-wrapper at-row at-row--wrap at-row__justify--center at-row__align--center'>
