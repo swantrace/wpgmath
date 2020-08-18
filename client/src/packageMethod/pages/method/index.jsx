@@ -6,7 +6,12 @@ import "./method.scss";
 export default class Method extends Component {
   render() {
     return (
-      <Layout page-class='method' currentTabNumber='1'>
+      <Layout
+        page-class='method'
+        currentTabNumber='1'
+        title='教学方法'
+        btn-no-border='btn-no-border'
+      >
         <View className='main-content'>method</View>
       </Layout>
     );

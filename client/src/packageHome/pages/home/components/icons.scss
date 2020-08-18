@@ -9,6 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .btn-no-border {
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .btn-no-border::after {
+      border: none;
+    }
     .title {
       margin-top: 10rpx;
       font-size: 24rpx;

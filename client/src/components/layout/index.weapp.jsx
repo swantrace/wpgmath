@@ -8,12 +8,17 @@ import Footer from "../footer/index.weapp";
 import "./layout.scss";
 
 export default class Layout extends Component {
-  static externalClasses = ["page-class"];
+  static externalClasses = ["page-class", "btn-no-border"];
   render() {
     return (
       <View className='page-class'>
         <TopLogo />
-        <Header isHome={this.props.isHome} title={this.props.title} />
+        <Header
+          isHome={this.props.isHome}
+          title={this.props.title}
+          titleColor={this.props.titleColor}
+          btn-no-border='btn-no-border'
+        />
         {this.props.children}
         <OneOnOneButton />
         <CustomerServiceButton />

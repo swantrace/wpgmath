@@ -6,7 +6,7 @@ import "./videos.scss";
 export default class Videos extends Component {
   render() {
     return (
-      <Layout page-class='video'>
+      <Layout page-class='video' title='相关视频' btn-no-border='btn-no-border'>
         <View className='main-content-2'>videos</View>
       </Layout>
     );

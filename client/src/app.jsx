@@ -28,8 +28,6 @@ class App extends Component {
 
   config = {
     entryPagePath: "packageHome/pages/home/index",
-    functionalPages: true,
-    debug: true,
     subPackages: [
       {
         root: "packageHome",
@@ -50,6 +48,11 @@ class App extends Component {
         root: "packageQuestions",
         name: "questions_page",
         pages: ["pages/questions/index"]
+      },
+      {
+        root: "packageOneOnOneForm",
+        name: "oneonone_page",
+        pages: ["pages/oneonone/index"]
       },
       {
         root: "packageVideos",
@@ -89,7 +92,8 @@ class App extends Component {
           "method_page",
           "contact_page",
           "contact_page",
-          "history_page"
+          "history_page",
+          "oneonone_page"
         ]
       },
       "packageTeachers/pages/teachers/index": {

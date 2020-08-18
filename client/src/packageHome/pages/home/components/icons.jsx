@@ -1,5 +1,5 @@
 import Taro from "@tarojs/taro";
-import { View } from "@tarojs/components";
+import { View, Button } from "@tarojs/components";
 import IconFont from "../../../../components/iconfont";
 import "./icons.scss";
 
@@ -48,6 +48,8 @@ export default function Icons() {
         Taro.redirectTo({ url: "/packageStudents/pages/students/index" });
         break;
       case "Share":
+        debugger;
+        Taro.showShareMenu({ withShareTicket: true });
         break;
       case "video":
         Taro.redirectTo({ url: "/packageVideos/pages/videos/index" });
@@ -69,13 +71,16 @@ export default function Icons() {
     <View className='icons-wrapper at-row at-row--wrap at-row__justify--center at-row__align--center'>
       {iconInfos.map(iconInfo => (
         <View className='at-col at-col-3' key={iconInfo.icon}>
-          <View
-            className='icon-title-wrapper'
-            onClick={() => {
-              handleClick(iconInfo.icon);
-            }}
-          >
-            <IconFont name={iconInfo.icon} size={iconSize} />
+          <View className='icon-title-wrapper'>
+            <Button
+              onClick={() => {
+                handleClick(iconInfo.icon);
+              }}
+              className='btn-no-border'
+              openType={iconInfo.icon === "Share" ? "share" : ""}
+            >
+              <IconFont name={iconInfo.icon} size={iconSize} />
+            </Button>
             <View className='title'>{iconInfo.title}</View>
           </View>
         </View>

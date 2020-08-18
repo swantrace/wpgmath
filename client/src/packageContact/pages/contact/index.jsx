@@ -6,7 +6,12 @@ import "./contact.scss";
 export default class Contact extends Component {
   render() {
     return (
-      <Layout page-class='contact' currentTabNumber='3'>
+      <Layout
+        page-class='contact'
+        currentTabNumber='3'
+        title='联系我们'
+        btn-no-border='btn-no-border'
+      >
         <View className='main-content'>contact</View>
       </Layout>
     );

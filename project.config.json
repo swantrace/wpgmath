@@ -1,38 +1,74 @@
 {
-	"miniprogramRoot": "client/dist/",
-	"cloudfunctionRoot": "cloud/functions/",
-	"projectname": "wpgmath",
-	"description": "Winnipeg Math",
-	"appid": "wx5acbf23a3417385e",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"enhance": false,
-		"postcss": false,
-		"preloadBackgroundData": false,
-		"minified": false,
-		"newFeature": false,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {}
+  "miniprogramRoot": "client/dist/",
+  "cloudfunctionRoot": "cloud/functions/",
+  "projectname": "wpgmath",
+  "description": "Winnipeg Math",
+  "appid": "wx5acbf23a3417385e",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "enhance": false,
+    "postcss": false,
+    "preloadBackgroundData": false,
+    "minified": false,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "useMultiFrameRuntime": true,
+    "useApiHook": false
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": -1,
+          "name": "normal",
+          "pathName": "packageHome/pages/home/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

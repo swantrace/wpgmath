@@ -4,11 +4,12 @@ import IconFont from "../iconfont";
 import BranchSelector from "../branch-selector/index.weapp";
 import "./header.scss";
 
-export default function Header({ isHome, title }) {
+export default function Header({ isHome, title, titleColor }) {
   const onGetBranch = e => {
     console.log("on get branch", e);
   };
   const goBackHome = () => {
+    console.log("goBackHome");
     Taro.redirectTo({ url: "/packageHome/pages/home/index" });
   };
   return isHome ? (
@@ -33,19 +34,30 @@ export default function Header({ isHome, title }) {
               height: "96rpx",
               width: "96rpx",
               borderRadius: "50%",
-              border: "18rpx solid #fff"
+              border: "22rpx solid #fff"
             }}
           ></View>
         </View>
       </View>
     </View>
   ) : (
-    <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
-      <Button onClick={goBackHome} style={{ padding: "0" }}>
-        <IconFont name='back' size={34} className='at-col at-col-1' />
+    <View
+      className='header-wrapper at-row at-row__justify--around at-row__align--center'
+      style={{ padding: "0 20rpx" }}
+    >
+      <Button onClick={goBackHome} className='btn-no-border'>
+        <IconFont name='back' size={55} className='at-col at-col-1' />
       </Button>
       <View className='at-col at-col-10' style={{ textAlign: "center" }}>
-        <Text>{title}</Text>
+        <Text
+          style={{
+            color: `${titleColor}`,
+            letterSpacing: "0.2em",
+            fontWeight: "bold"
+          }}
+        >
+          {title}
+        </Text>
       </View>
       <View className='at-col at-col-1'>
         <View
@@ -65,7 +77,7 @@ export default function Header({ isHome, title }) {
               height: "96rpx",
               width: "96rpx",
               borderRadius: "50%",
-              border: "18rpx solid #fff"
+              border: "22rpx solid #fff"
             }}
           ></View>
         </View>
@@ -73,3 +85,5 @@ export default function Header({ isHome, title }) {
     </View>
   );
 }
+
+Header.externalClasses = ["btn-no-border", "btn-normal"];

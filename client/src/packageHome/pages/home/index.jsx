@@ -14,13 +14,18 @@ export default class Home extends Component {
       console.log(res.target);
     }
     return {
-      title: "自定义转发标题",
-      path: "/page/user?id=123"
+      title: "Hello World",
+      path: "/packageHome/pages/home/index"
     };
   }
   render() {
     return (
-      <Layout page-class='home' currentTabNumber='0' isHome>
+      <Layout
+        btn-no-border='btn-no-border'
+        page-class='home'
+        currentTabNumber='0'
+        isHome
+      >
         <View className='main-content'>
           <HomeSwiper />
           <View className='divider-wrapper'>

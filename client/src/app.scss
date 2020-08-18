@@ -30,3 +30,13 @@ $color-brand-dark: #910e16;
   border-radius: 50%;
   border: 50rpx solid #f1f1f1;
 }
+
+.btn-no-border {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.btn-no-border::after {
+  border: none;
+}
