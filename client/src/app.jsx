@@ -16,7 +16,10 @@ class App extends Component {
 
   componentDidMount() {
     if (process.env.TARO_ENV === "weapp") {
-      Taro.cloud.init();
+      Taro.cloud.init({
+        env: "mathnasium-jepku",
+        traceUser: true
+      });
     }
   }
 
@@ -28,6 +31,7 @@ class App extends Component {
 
   config = {
     entryPagePath: "packageHome/pages/home/index",
+    debug: true,
     subPackages: [
       {
         root: "packageHome",
@@ -48,11 +52,6 @@ class App extends Component {
         root: "packageQuestions",
         name: "questions_page",
         pages: ["pages/questions/index"]
-      },
-      {
-        root: "packageOneOnOneForm",
-        name: "oneonone_page",
-        pages: ["pages/oneonone/index"]
       },
       {
         root: "packageVideos",
@@ -92,8 +91,7 @@ class App extends Component {
           "method_page",
           "contact_page",
           "contact_page",
-          "history_page",
-          "oneonone_page"
+          "history_page"
         ]
       },
       "packageTeachers/pages/teachers/index": {

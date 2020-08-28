@@ -1,5 +1,5 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image } from "@tarojs/components";
+import { View, Image, Text } from "@tarojs/components";
 import Layout from "../../../components/layout/index.weapp";
 import "./teachers.scss";
 
@@ -59,6 +59,14 @@ export default class Teachers extends Component {
               </View>
             ))}
           </View>
+        </View>
+        <View>
+          <Text>我们开放优秀的工作机会</Text>
+        </View>
+        <View>
+          <View>在校大学生</View>
+          <View>优秀的高中生</View>
+          <View>退休教师</View>
         </View>
       </Layout>
     );

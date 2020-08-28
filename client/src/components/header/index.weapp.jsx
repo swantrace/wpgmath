@@ -10,6 +10,7 @@ export default function Header({ isHome, title, titleColor }) {
   };
   const goBackHome = () => {
     console.log("goBackHome");
+    debugger;
     Taro.redirectTo({ url: "/packageHome/pages/home/index" });
   };
   return isHome ? (

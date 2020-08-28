@@ -20,7 +20,9 @@ export default class Layout extends Component {
           btn-no-border='btn-no-border'
         />
         {this.props.children}
-        <OneOnOneButton />
+        <OneOnOneButton
+          hasFooter={this.props.currentTabNumber ? true : false}
+        />
         <CustomerServiceButton />
         {this.props.currentTabNumber && (
           <Footer current={this.props.currentTabNumber} />

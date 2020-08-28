@@ -31,7 +31,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View className="index">
+      <View className='index'>
         <Button onClick={this.getLogin}>获取登录云函数</Button>
         <Text>context：{JSON.stringify(this.state.context)}</Text>
       </View>

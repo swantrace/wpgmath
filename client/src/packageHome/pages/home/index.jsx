@@ -23,6 +23,7 @@ export default class Home extends Component {
       <Layout
         btn-no-border='btn-no-border'
         page-class='home'
+        oneonone-class='oneonone-footer'
         currentTabNumber='0'
         isHome
       >

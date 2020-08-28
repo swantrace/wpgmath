@@ -1,5 +1,11 @@
+@import "~taro-ui/dist/style/components/toast.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 .one-on-one-button {
   width: 100vw;
   position: relative;
   bottom: 102rpx;
+}
+
+.one-on-one-button-no-footer {
+  width: 100vw;
 }
