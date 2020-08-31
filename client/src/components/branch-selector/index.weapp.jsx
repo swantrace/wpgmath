@@ -1,35 +1,63 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Picker } from "@tarojs/components";
+import { connect } from "@tarojs/redux";
+import { updateBranch } from "../../actions/index";
 import "./index.css";
-import branches from "./branches";
 
+@connect(
+  state => {
+    return {
+      branchName: state.branchName
+    };
+  },
+  dispatch => ({
+    dispatchUpdateBranch(country, provinceOrState, branchName) {
+      dispatch(updateBranch(country, provinceOrState, branchName));
+    }
+  })
+)
 export default class BranchSelector extends Component {
   state = {
-    branch: "SW Winnipeg",
+    branch: "请选择分校",
     range: [],
     value: [0, 0, 0]
   };
 
-  componentWillMount() {
-    let range = this.state.range;
-    let temp = [];
-    for (let i = 0; i < branches.length; i++) {
-      temp.push(branches[i].name);
+  componentWillReceiveProps(nextProps) {
+    if (this.props.branches.length == 0 && nextProps.branches.length > 0) {
+      let range = this.state.range;
+      let temp = [];
+      for (let i = 0; i < nextProps.branches.length; i++) {
+        temp.push(nextProps.branches[i].name);
+      }
+      range.push(temp);
+      temp = [];
+      for (let i = 0; i < nextProps.branches[0].provinceOrState.length; i++) {
+        temp.push(nextProps.branches[0].provinceOrState[i].name);
+      }
+      range.push(temp);
+      temp = [];
+      for (
+        let i = 0;
+        i < nextProps.branches[0].provinceOrState[0].branch.length;
+        i++
+      ) {
+        temp.push(nextProps.branches[0].provinceOrState[0].branch[i]);
+      }
+      range.push(temp);
+      this.setState(
+        {
+          range: range,
+          branch: `${range[2][this.state.value[2]]}`
+        },
+        () => {
+          const country = this.state.range[0][this.state.value[0]];
+          const provinceOrState = this.state.range[1][this.state.value[1]];
+          const branchName = this.state.range[2][this.state.value[2]];
+          this.props.dispatchUpdateBranch(country, provinceOrState, branchName);
+        }
+      );
     }
-    range.push(temp);
-    temp = [];
-    for (let i = 0; i < branches[0].provinceOrState.length; i++) {
-      temp.push(branches[0].provinceOrState[i].name);
-    }
-    range.push(temp);
-    temp = [];
-    for (let i = 0; i < branches[0].provinceOrState[0].branch.length; i++) {
-      temp.push(branches[0].provinceOrState[0].branch[i]);
-    }
-    range.push(temp);
-    this.setState({
-      range: range
-    });
   }
 
   onChange = e => {
@@ -47,7 +75,10 @@ export default class BranchSelector extends Component {
         value: valueTemp
       },
       () => {
-        this.props.onGetBranch(this.state.region);
+        const country = this.state.range[0][this.state.value[0]];
+        const provinceOrState = this.state.range[1][this.state.value[1]];
+        const branchName = this.state.range[2][this.state.value[2]];
+        this.props.dispatchUpdateBranch(country, provinceOrState, branchName);
       }
     );
   };
@@ -63,15 +94,23 @@ export default class BranchSelector extends Component {
       case 0:
         let provinceOrStateTemp = [];
         let branchTemp = [];
-        for (let i = 0; i < branches[row].provinceOrState.length; i++) {
-          provinceOrStateTemp.push(branches[row].provinceOrState[i].name);
+        for (
+          let i = 0;
+          i < this.props.branches[row].provinceOrState.length;
+          i++
+        ) {
+          provinceOrStateTemp.push(
+            this.props.branches[row].provinceOrState[i].name
+          );
         }
         for (
           let i = 0;
-          i < branches[row].provinceOrState[0].branch.length;
+          i < this.props.branches[row].provinceOrState[0].branch.length;
           i++
         ) {
-          branchTemp.push(branches[row].provinceOrState[0].branch[i]);
+          branchTemp.push(
+            this.props.branches[row].provinceOrState[0].branch[i]
+          );
         }
         valueTemp[1] = 0;
         valueTemp[2] = 0;
@@ -82,11 +121,12 @@ export default class BranchSelector extends Component {
         let branchTemp2 = [];
         for (
           let i = 0;
-          i < branches[valueTemp[0]].provinceOrState[row].branch.length;
+          i <
+          this.props.branches[valueTemp[0]].provinceOrState[row].branch.length;
           i++
         ) {
           branchTemp2.push(
-            branches[valueTemp[0]].provinceOrState[row].branch[i]
+            this.props.branches[valueTemp[0]].provinceOrState[row].branch[i]
           );
         }
         valueTemp[2] = 0;
@@ -96,10 +136,18 @@ export default class BranchSelector extends Component {
         break;
     }
 
-    this.setState({
-      range: rangeTemp,
-      value: valueTemp
-    });
+    this.setState(
+      {
+        range: rangeTemp,
+        value: valueTemp
+      },
+      () => {
+        const country = this.state.range[0][this.state.value[0]];
+        const provinceOrState = this.state.range[1][this.state.value[1]];
+        const branchName = this.state.range[2][this.state.value[2]];
+        this.props.dispatchUpdateBranch(country, provinceOrState, branchName);
+      }
+    );
   };
 
   render() {
@@ -119,7 +167,7 @@ export default class BranchSelector extends Component {
           value={this.state.value}
         >
           <View>
-            <Text>{this.state.branch}</Text>
+            <Text>{this.props.branchName}</Text>
           </View>
         </Picker>
       </View>

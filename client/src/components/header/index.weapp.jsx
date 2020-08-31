@@ -1,22 +1,42 @@
-import Taro from "@tarojs/taro";
+import Taro, { useState, useEffect } from "@tarojs/taro";
 import { View, OpenData, Text, Button } from "@tarojs/components";
 import IconFont from "../iconfont";
 import BranchSelector from "../branch-selector/index.weapp";
 import "./header.scss";
 
 export default function Header({ isHome, title, titleColor }) {
+  const [branches, setBranches] = useState([]);
+  useEffect(() => {
+    Taro.getLocation({
+      success: function(res) {
+        Taro.cloud
+          .callFunction({
+            name: "getBranchList",
+            data: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            }
+          })
+          .then(branchList => {
+            setBranches(branchList.result);
+          });
+      }
+    });
+  }, []);
   const onGetBranch = e => {
     console.log("on get branch", e);
   };
   const goBackHome = () => {
-    console.log("goBackHome");
-    debugger;
     Taro.redirectTo({ url: "/packageHome/pages/home/index" });
   };
   return isHome ? (
     <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
       <IconFont name='location' size={34} className='at-col at-col-1' />
-      <BranchSelector onGetBranch={onGetBranch} className='at-col-5' />
+      <BranchSelector
+        onGetBranch={onGetBranch}
+        branches={branches || []}
+        className='at-col-5'
+      />
       <View className='at-col at-col-1 at-col__offset-5'>
         <View
           className='headView'

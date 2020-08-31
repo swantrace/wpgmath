@@ -1072,6 +1072,14 @@
     "@tarojs/service" "^2.2.8"
     terser-webpack-plugin "3.0.2"
 
+"@tarojs/redux@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.npm.taobao.org/@tarojs/redux/download/@tarojs/redux-2.2.10.tgz#63b1ee7cd123c17aa67d71d6d5ae8ce6ef6eacea"
+  integrity sha1-Y7HufNEjwXqmfXHW1a6M5u9urOo=
+  dependencies:
+    "@tarojs/taro" "^2.2.10"
+    "@tarojs/utils" "^2.2.10"
+
 "@tarojs/router@2.2.8":
   version "2.2.8"
   resolved "https://registry.npm.taobao.org/@tarojs/router/download/@tarojs/router-2.2.8.tgz#1a8c4220280184dae1b5bd90d7bcf5f058576796"
@@ -1200,6 +1208,13 @@
   dependencies:
     "@tarojs/utils" "^2.2.8"
 
+"@tarojs/taro@^2.2.10":
+  version "2.2.13"
+  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.2.13.tgz#1e4702a60a36c9ad4725809a170d6b739b73171b"
+  integrity sha1-HkcCpgo2ya1HJYCaFw1rc5tzFxs=
+  dependencies:
+    "@tarojs/utils" "2.2.13"
+
 "@tarojs/transformer-wx@^2.2.8":
   version "2.2.10"
   resolved "https://registry.npm.taobao.org/@tarojs/transformer-wx/download/@tarojs/transformer-wx-2.2.10.tgz#432d77159c319d531e94e739664b7918a969d729"
@@ -1236,7 +1251,12 @@
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.2.11.tgz#4df3d7a60313c349da09c7298677cd47bf478d8d"
   integrity sha1-TfPXpgMTw0naCccphnfNR79HjY0=
 
-"@tarojs/utils@^2.2.8":
+"@tarojs/utils@2.2.13":
+  version "2.2.13"
+  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.2.13.tgz#ac452d0743a6dee494ce8bfe529f904aa3e2c6ad"
+  integrity sha1-rEUtB0Om3uSUzov+Up+QSqPixq0=
+
+"@tarojs/utils@^2.2.10", "@tarojs/utils@^2.2.8":
   version "2.2.10"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.2.10.tgz#ddf82a77aeccfc315c2fb78b3d1c079860aed350"
   integrity sha1-3fgqd67M/DFcL7eLPRwHmGCu01A=
@@ -3848,6 +3868,11 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+
+deep-diff@^0.3.5:
+  version "0.3.8"
+  resolved "https://registry.npm.taobao.org/deep-diff/download/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
+  integrity sha1-wB3mPvsO7JeYgB1Ax+Da4ltYLIQ=
 
 deep-equal@^1.0.1:
   version "1.1.1"
@@ -8043,6 +8068,26 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
+redux-logger@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.npm.taobao.org/redux-logger/download/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
+  integrity sha1-91VZZvMJjzyIYExEnPC69XeCdL8=
+  dependencies:
+    deep-diff "^0.3.5"
+
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI=
+
+redux@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.npm.taobao.org/redux/download/redux-4.0.5.tgz?cache=0&sync_timestamp=1577154206919&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux%2Fdownload%2Fredux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+  integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
+
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"
   resolved "https://registry.npm.taobao.org/regenerate-unicode-properties/download/regenerate-unicode-properties-8.2.0.tgz#e5de7111d655e7ba60c057dbe9ff37c87e65cdec"
@@ -9182,6 +9227,11 @@ swiper@4.4.2:
     dom7 "^2.1.2"
     ssr-window "^1.0.1"
 
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+
 table@4.0.2:
   version "4.0.2"
   resolved "https://registry.npm.taobao.org/table/download/table-4.0.2.tgz#a33447375391e766ad34d3486e6e2aedc84d2e36"
@@ -9250,6 +9300,13 @@ taro-navigationbar@^2.1.1:
   integrity sha1-jqp5M+5vt76boHu+df3efkmz3nQ=
   dependencies:
     lodash latest
+
+taro-parse@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.npm.taobao.org/taro-parse/download/taro-parse-1.1.5.tgz#8fd03f50ce2890440101d553fbcd5d8fbac1536b"
+  integrity sha1-j9A/UM4okEQBAdVT+81dj7rBU2s=
+  dependencies:
+    babel-runtime "^6.26.0"
 
 taro-ui@^2.3.4:
   version "2.3.4"

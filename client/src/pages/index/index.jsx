@@ -1,19 +1,30 @@
 import Taro, { useEffect, useState } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import "./index.scss";
+import BranchSelector from "../../components/branch-selector/index.weapp";
 
 export default function Index() {
-  const [context, setContext] = useState({ ids: {} });
+  const [branches, setBranches] = useState([]);
   useEffect(() => {
-    Taro.cloud
-      .callFunction({
-        name: "login",
-        data: {}
-      })
-      .then(res => {
-        console.log("res", res);
-        setContext({ ids: res.result });
-      });
+    Taro.getLocation({
+      success: function(res) {
+        Taro.cloud
+          .callFunction({
+            name: "getBranchList",
+            data: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            }
+          })
+          .then(branchList => {
+            setBranches(branchList.result);
+          });
+      }
+    });
   }, []);
-  return <View className='index'>{context.ids}</View>;
+  return (
+    <View className='index'>
+      <BranchSelector branches={branches}></BranchSelector>
+    </View>
+  );
 }
