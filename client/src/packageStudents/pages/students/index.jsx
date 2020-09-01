@@ -10,6 +10,7 @@ export default class Students extends Component {
         page-class='students'
         title='学员活动'
         btn-no-border='btn-no-border'
+        titleColor='#3567B0'
       >
         <View className='main-content-2'>students</View>
       </Layout>

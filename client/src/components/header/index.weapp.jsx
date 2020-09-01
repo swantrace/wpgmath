@@ -31,7 +31,6 @@ export default function Header({ isHome, title, titleColor }) {
   };
   return isHome ? (
     <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
-      <IconFont name='location' size={34} className='at-col at-col-1' />
       <BranchSelector
         onGetBranch={onGetBranch}
         branches={branches || []}

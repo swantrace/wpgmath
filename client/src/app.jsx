@@ -33,7 +33,7 @@ class App extends Component {
   componentDidCatchError() {}
 
   config = {
-    entryPagePath: "packageHome/pages/home/index",
+    entryPagePath: "pages/index/index",
     debug: true,
     subPackages: [
       {

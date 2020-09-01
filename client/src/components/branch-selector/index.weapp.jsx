@@ -1,6 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text, Picker } from "@tarojs/components";
+import { View, Text, Picker, Button } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
+import IconFont from "../iconfont";
 import { updateBranch } from "../../actions/index";
 import "./index.css";
 
@@ -166,10 +167,22 @@ export default class BranchSelector extends Component {
           range={this.state.range}
           value={this.state.value}
         >
-          <View>
-            <Text>{this.props.branchName}</Text>
-          </View>
+          {this.props.forHeader ? (
+            <View>
+              <IconFont name='location' size={34} className='at-col at-col-1' />
+              <Text>{this.props.branchName}</Text>
+            </View>
+          ) : (
+            <View>
+              <Button>请选择分校</Button>
+            </View>
+          )}
         </Picker>
+        {!this.props.forHeader && this.props.branchName != "请选择分校" ? (
+          <View>
+            <Button>进入 {this.props.branchName}</Button>
+          </View>
+        ) : null}
       </View>
     );
   }

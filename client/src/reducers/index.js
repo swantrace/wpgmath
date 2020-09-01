@@ -29,7 +29,11 @@ const INITIAL_STATE = {
     history_head_image: "",
     activities_head_image: "",
     contact: "",
-    contact_head_image: ""
+    contact_head_image: "",
+    index_top_image:
+      "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
+    index_bottom_image:
+      "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
   }
 };
 

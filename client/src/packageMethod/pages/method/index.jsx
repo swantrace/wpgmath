@@ -11,6 +11,7 @@ export default class Method extends Component {
         currentTabNumber='1'
         title='教学方法'
         btn-no-border='btn-no-border'
+        titleColor='#3567B0'
       >
         <View className='main-content'>method</View>
       </Layout>

@@ -11,7 +11,8 @@ import "./contact.scss";
     contact: state.branchInfo.contact,
     contactHeadImage: state.branchInfo.contact_head_image,
     textAddress: state.branchInfo.text_address,
-    coordinates: state.branchInfo.location.coordinates
+    coordinates: state.branchInfo.location.coordinates,
+    phone: state.branchInfo.phone
   };
 }, null)
 export default class Contact extends Component {
@@ -53,10 +54,25 @@ export default class Contact extends Component {
           <View style={{ margin: "10px auto", width: "253px" }}>
             {this.props.textAddress}
           </View>
+          <View
+            style={{
+              margin: "10px auto",
+              width: "253px",
+              fontSize: "0.8em",
+              lineHeight: "1em",
+              letterSpacing: "0.05em",
+              color: "#E9322E"
+            }}
+          >
+            温尼伯联系电话：{this.props.phone}
+          </View>
           <Map
             longitude={this.props.coordinates[0]}
             latitude={this.props.coordinates[1]}
-            style={{ width: "100vw", height: "80vw" }}
+            style={{
+              width: "100vw",
+              height: "80vw"
+            }}
           ></Map>
         </View>
       </Layout>

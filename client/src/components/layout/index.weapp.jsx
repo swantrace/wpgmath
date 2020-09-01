@@ -18,6 +18,7 @@ export default class Layout extends Component {
           title={this.props.title}
           titleColor={this.props.titleColor}
           btn-no-border='btn-no-border'
+          forHeader
         />
         {this.props.children}
         <OneOnOneButton
