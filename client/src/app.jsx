@@ -62,11 +62,6 @@ class App extends Component {
         pages: ["pages/videos/index"]
       },
       {
-        root: "packageVideo",
-        name: "video_page",
-        pages: ["pages/video/index"]
-      },
-      {
         root: "packageMethod",
         name: "method_page",
         pages: ["pages/method/index"]
@@ -111,11 +106,7 @@ class App extends Component {
       },
       "packageVideos/pages/videos/index": {
         network: "all",
-        packages: ["home_page", "video_page"]
-      },
-      "packageVideo/pages/video/index": {
-        network: "all",
-        packages: ["home_page", "videos_page"]
+        packages: ["home_page"]
       },
       "packageMethod/pages/method/index": {
         network: "all",

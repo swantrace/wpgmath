@@ -1,0 +1,126 @@
+{
+  "_id": "b6c21a1f-9c28-4430-9ee2-a0519bd2922b",
+  "handle": "swwinnipeg",
+  "teachers": [
+    "062d0438-79a4-4bd4-a874-45e1a5475772",
+    "9edd2c47-c129-460a-aaab-14e866738d26",
+    "be3c8b9a-9d36-4b00-bd23-a8a387fce98e",
+    "73376ba0-9b95-4b92-8684-88c170b040c0"
+  ],
+  "mathnasium_hours": [
+    { "day": "周一", "time": "下午 4：00 - 晚上 8：00" },
+    { "time": "下午 4：00 - 晚上 8：00", "day": "周二" },
+    { "day": "周三", "time": "下午 4：00 - 晚上 8：00" },
+    { "day": "周四", "time": "下午 4：00 - 晚上 8：00" },
+    { "day": "周五", "time": "关闭" },
+    { "day": "周六", "time": "早上 10：00  - 下午  2：00" },
+    { "day": "周日", "time": "早上 12：00 - 下午 3：00" }
+  ],
+  "holiday_closures": [
+    { "name": "New Years Day", "time": "01/01/2019" },
+    { "name": "Louis Rell Day", "time": "02/18/2019" },
+    { "name": "Easter Sunday", "time": "04/21/2019" },
+    { "name": "Victoria Day", "time": "05/20/2019" },
+    { "name": "Canada Day", "time": "07/01/2019" },
+    { "name": "Terry Fox Day", "time": "08/05/2019" },
+    { "name": "Labour Day", "time": "09/02/2019" },
+    { "name": "Thanksgiving Monday", "time": "10/14/2019" },
+    {
+      "name": "Christmas Eve, Christmas, Boxing Day",
+      "time": "12/24/2019 - 12/26/2019"
+    },
+    {
+      "name": "New Years Eve, New Years Day",
+      "time": "12/31/2019 - 01/01/2020"
+    }
+  ],
+  "pictures": [
+    "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/home1.jpg",
+    "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/home2.jpg",
+    "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/home3.jpg",
+    "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/home4.jpg"
+  ],
+  "videos": [
+    "6518b7395f3f00f1000721604f0b7a0b",
+    "b5416b755f3f012e000888fa461b2042",
+    "b5416b755f3f017f00088c1307545109"
+  ],
+  "phone": "(204) 885-6284",
+  "notices": [
+    "我们免费对您的孩子进行数学测试，并进一步根据你们孩子的情况来为Ta 辅导。",
+    "当我们确认您孩子的情况（等级），我们将为他提供一次免费授课。",
+    "我们会在12月24、25、26、31和1月1号，为庆祝圣诞节和新年休假（closed）。"
+  ],
+  "branch_name": "SW Winnipeg",
+  "country": "Canada",
+  "province_or_state": "Manitoba",
+  "on_hire": true,
+  "postal_code": "R3P1E9",
+  "city": "Winnipeg",
+  "text_address": "660 Sterling Lyon Pkwy, Unit 12, Winnipeg, MB R3P1E9",
+  "location": { "coordinates": [-97.217157, 49.841241], "type": "Point" },
+  "history": "<p class=\"history-text\">Mathnasium，于2002年在美国开设了第一家教育中心。短短的17年时间里，已在全世界范围内扩展了900多家门店。Larry Martinek，Mathnasium的创始人，正在用他独特的数学教育方式，帮助了越来越多的学生提高了他们的数学成绩并让学生们对数学有了全新的认识。Larry编写了Mathnasium特有的教材，而非传统意义上的教科书。Larry相信，同传统的硬记硬背和不断重复的教育方式比起来，让孩子们真正从概念上理解数学能更好的帮助他们建立更强的数感。</p><p class=\"history-text\">Larry 和他的Mathnasium一起，带着那些曾经面对数学不知所措的学生找到了一条简单明了的出路，并且带领着学生们不断发现数学的乐趣所在。</p>",
+  "activities": "<p class=\"activities-text\">Mathuasium 招收不同年龄阶段的学生补习提高数学能，95%的学员成绩提高明显，而且真正培养了学生们对数学的兴趣和热爱。而且每次学习还会有小奖励呦！</p><p class=\"activities-text\"> 学校还有不定期的party和club,很多中小学生都盼着把来数学学校度过开心的一小时学习时光。</p>",
+  "faq": [
+    {
+      "answer": "<p class=\"faq-text\">Absolutely.  Since Mathnasium is customized to the needs of each individual student, we can help advanced students stay engaged and stimulated by introducing them to more challenging math topics.  More importantly, we can also help your child to develop even stronger numeric fluency and critical thinking skills, which are essential for continued success in math. </p>",
+      "question": "My child already excels in math.  Will Mathnasium address their needs?"
+    },
+    {
+      "answer": "<p class=\"faq-text\">Have you ever watched a foreign movie without subtitles? It can be confusing and frustrating because you don't understand the language!  If your child is missing key math skills, this is exactly how they feel in math class!</p><p class=\"faq-text\">In school, they treat kids the same because it is assumed that all kids learn the same way and at the same rate. The teachers are expected to cover vast amounts of material in a short period of time. If your child doesn't get a chance to master a skill for whatever reason –  there is no time to give the necessary time and attention that they need. Teachers must move quickly to stay “on schedule\". As a result, we see too many kids fall behind in math.</p><p class=\"faq-text\">What happens next?  The class moves on! Here come multiplication facts, fractions, percentages, decimals, mixed numbers, exponents, ratios, x=?, divisibility rules, algebra, geometry, equations. It never slows down so your child can catch up! They feel overwhelmed, embarrassed, and all alone! They begin to expect and accept failure as the \"new normal\" and think \"I'm just not good in math!\". If they lose confidence in themselves we typically see all of their other grades begin to suffer. </p><p class=\"faq-text\">Is it any wonder why you have to fight with them to do their homework? With many kids, it is easier for them to fight you and not do the work than to put the effort into it only to see failure again. After a while, it just doesn't seem worth the effort for them.</p>",
+      "question": "Why do children struggle with math?"
+    },
+    {
+      "answer": "<p class=\"faq-text\">Unfortunately, in most cases, a private tutor is a temporary fix for a long term problem. Private   tutors only help children \"survive\" tonight's homework, but they don't address underlying issues. In most cases,   private tutoring is not going to be a meaningful long term solution. Your child deserves to have that long-term impact   in their math education!</p>",
+      "question": "Will a private one-on-one tutor work?"
+    },
+    {
+      "answer": "<p class=\"faq-text\">Great Question! The very first thing we do is give your child a skills   assessment. It is both a written and oral assessment so that we can get a deep   understanding of not only what they know, but how they think! </p> <p class=\"faq-text\">   We sit down with them, put them at ease, and give them an assessment that   doesn't feel too easy or too hard. Most importantly, we find out HOW THEY   LEARN! Then we build their trust by giving them a few ideas and strategies   that they can use immediately. We use the results to build a customized   learning plan that targets skill gaps and quickly shows them success. In many   cases, “success” in math is something they have been craving! </p>",
+      "question": "How is Mathnasium different?"
+    },
+    {
+      "answer": "<p class=\"faq-text\">Yes! Quite well. We get 100's of reviews that are glowing about how struggling students come alive after coming to Mathnasium. Their grade increase and their confidence skyrockets!</p>",
+      "question": "Does Mathnasium Really Work?"
+    },
+    {
+      "answer": "<p class=\"faq-text\">   It's not just important, It's <b>critical</b>! Kids <b>need</b> to see that they <b>can</b> do the   work so that they can feel confident! This fresh, new confidence will spill   over to many other areas of your child's life. At this point, you will start   to see peace at home! You won't be having to fight with them to do homework.   Not only will they have the <b>confidence and the skills</b> to attack it but they'll   start bringing home better grades from school. How do we know this? Because we   have seen it over and over again with hundreds of our students! </p>",
+      "question": "Why is confidence in math important?"
+    },
+    {
+      "question": "Are you doing one-on-one tutoring?",
+      "answer": "<p class=\"faq-text\">   Another great question! Our instructors are not just average math tutors. We   have brilliant, engaging, inspiring math experts that work one on one with   your child. They make sure your child understands what to do. Then the   instructor steps back and lets your child work independently to give them the   time to process this new information without the pressure and stress of being   watched. It also prevents \"learned helplessness\" where the student feels that   they need the instructor sitting in front of them all the time in order to be   successful. </p> <p class=\"faq-text\">   Our instructors quickly come back after a minute or two to make sure they are   doing the problems correctly, give them encouragement, and praise them for   their efforts! If the student needs more math help we simply teach the lesson   again in a different way without judgment or ridicule until they \"get it.\"   This enables your child to become a \"confident, independent learner.\" </p>"
+    }
+  ],
+  "history_head_image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/history_head.png",
+  "activities_head_image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/activities_head.png",
+  "contact": "<p class=\"contact-text\">Mathnasium是具有严格规范化管理的数学培训机构，总部坐落于美国旧金山。目前北美地区超过900所分校。加拿大有超过100所分校。</p>",
+  "contact_head_image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/contact-background.png",
+  "methods": [
+    {
+      "content": "我们的课程结构会根据每个学生不同的知识背景和能力设计，帮助他们真正理解数学的含义和如何正确的应用公式，并且培养良好的数学思维能力。",
+      "image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/methods-kechengjiegou.png",
+      "title": "课程结构",
+      "icon": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/mkcjg.png"
+    },
+    {
+      "title": "教学方法",
+      "content": "Mathnasium是怎么运行的呢？给孩子做数学评估是我们的第一步，在了解孩子的数学能力之后我们会为孩子定制仅针对于他们的数学补习计划。我们的老师是经过专业的培训，他们会给孩子们提供专业，详细，耐心的辅导。",
+      "image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/methods-jiaoxuefangfa.png",
+      "icon": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/mjxff.png"
+    },
+    {
+      "image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/methods-sijiaopeixun.png",
+      "title": "私教培训",
+      "content": "我们提供一对一针对性辅导。无论学生什么水平老师都会耐心根据孩子情况因材施教。如果您的孩子需要参加数学竞赛前培训，我们也提供相应辅导。",
+      "icon": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/msjpx.png"
+    },
+    {
+      "content": "我们还安排暑期培训时间，学生们利用这段时间查漏时间，丰富自己的暑期生活。",
+      "image": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/methods-shuqipeixun.png",
+      "title": "暑期培训",
+      "icon": "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/msqpx.png"
+    }
+  ],
+  "index_top_image": "https://6d61-mathnasium-jepku-1300955601.tcb.qcloud.la/start_top.jpg?sign=f86527cfad0751f82773c6342030d777&t=1598913651",
+  "index_bottom_image": "https://6d61-mathnasium-jepku-1300955601.tcb.qcloud.la/start_bottom.png?sign=a25566937ae5361de139803e41c47154&t=1598913325"
+}

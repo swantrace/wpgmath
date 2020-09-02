@@ -1,4 +1,8 @@
-import { UPDATE_BRANCH_INFO, SWITCH_BRANCH_NAME } from "../constants/index";
+import {
+  UPDATE_BRANCH_INFO,
+  SWITCH_BRANCH_NAME,
+  UPDATE_BRANCHES
+} from "../constants/index";
 
 const INITIAL_STATE = {
   country: "",
@@ -34,7 +38,8 @@ const INITIAL_STATE = {
       "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
     index_bottom_image:
       "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-  }
+  },
+  branches: []
 };
 
 export default function branchUpdater(state = INITIAL_STATE, action) {
@@ -50,6 +55,11 @@ export default function branchUpdater(state = INITIAL_STATE, action) {
       return {
         ...state,
         branchInfo: action.payload.branchInfo
+      };
+    case UPDATE_BRANCHES:
+      return {
+        ...state,
+        branches: action.payload.branches
       };
     default:
       return state;

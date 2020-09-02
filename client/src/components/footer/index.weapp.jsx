@@ -17,16 +17,48 @@ export default function Footer(props) {
     if (current !== goal) {
       switch (goal) {
         case 0:
-          Taro.navigateTo({ url: "/packageHome/pages/home/index" });
+          Taro.navigateTo({
+            url: "/packageHome/pages/home/index",
+            fail: err => {
+              console.log(err);
+              Taro.redirectTo({
+                url: "/packageHome/pages/home/index"
+              });
+            }
+          });
           break;
         case 1:
-          Taro.navigateTo({ url: "/packageMethod/pages/method/index" });
+          Taro.navigateTo({
+            url: "/packageMethod/pages/method/index",
+            fail: err => {
+              console.log(err);
+              Taro.redirectTo({
+                url: "/packageMethod/pages/method/index"
+              });
+            }
+          });
           break;
         case 2:
-          Taro.navigateTo({ url: "/packageHistory/pages/history/index" });
+          Taro.navigateTo({
+            url: "/packageHistory/pages/history/index",
+            fail: err => {
+              console.log(err);
+              Taro.redirectTo({
+                url: "/packageHistory/pages/history/index"
+              });
+            }
+          });
           break;
         case 3:
-          Taro.navigateTo({ url: "/packageContact/pages/contact/index" });
+          Taro.navigateTo({
+            url: "/packageContact/pages/contact/index",
+            fail: err => {
+              console.log(err);
+              Taro.redirectTo({
+                url: "/packageContact/pages/contact/index"
+              });
+            }
+          });
           break;
         default:
           break;

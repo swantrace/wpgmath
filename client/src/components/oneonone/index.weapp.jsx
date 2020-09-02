@@ -22,7 +22,7 @@ export default class OneOnOneButton extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ display: "flex" }}>
         <Image
           mode='widthFix'
           src={oneonone}

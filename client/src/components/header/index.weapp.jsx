@@ -1,109 +1,92 @@
-import Taro, { useState, useEffect } from "@tarojs/taro";
-import { View, OpenData, Text, Button } from "@tarojs/components";
+import Taro, { Component } from "@tarojs/taro";
+import { View, Text, Button } from "@tarojs/components";
+import { connect } from "@tarojs/redux";
+import { updateBranchesWithDBQuery } from "../../actions/index";
 import IconFont from "../iconfont";
 import BranchSelector from "../branch-selector/index.weapp";
+import Avatar from "./Avatar.weapp";
 import "./header.scss";
 
-export default function Header({ isHome, title, titleColor }) {
-  const [branches, setBranches] = useState([]);
-  useEffect(() => {
-    Taro.getLocation({
-      success: function(res) {
-        Taro.cloud
-          .callFunction({
-            name: "getBranchList",
-            data: {
-              latitude: res.latitude,
-              longitude: res.longitude
-            }
-          })
-          .then(branchList => {
-            setBranches(branchList.result);
-          });
-      }
-    });
-  }, []);
-  const onGetBranch = e => {
-    console.log("on get branch", e);
-  };
-  const goBackHome = () => {
+@connect(
+  state => ({
+    branches: state.branches
+  }),
+  dispatch => ({
+    dispatchUpdateBranchesWithDBQuery(latitude, longitude) {
+      dispatch(updateBranchesWithDBQuery(latitude, longitude));
+    }
+  })
+)
+export default class Header extends Component {
+  componentDidMount() {
+    if (this.props.branches && this.props.branches.length == 0) {
+      Taro.getLocation({
+        success: res => {
+          this.props.dispatchUpdateBranchesWithDBQuery(
+            res.latitude,
+            res.longitude
+          );
+        }
+      });
+    }
+  }
+
+  goBackHome = () => {
     Taro.redirectTo({ url: "/packageHome/pages/home/index" });
   };
-  return isHome ? (
-    <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
-      <BranchSelector
-        onGetBranch={onGetBranch}
-        branches={branches || []}
-        className='at-col-5'
-      />
-      <View className='at-col at-col-1 at-col__offset-5'>
+
+  onGetBranch = e => {
+    console.log(e);
+  };
+
+  render() {
+    return this.props.isHome ? (
+      <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
+        <View className='at-col at-col-5' style={{ height: "100%" }}>
+          <BranchSelector
+            branches={this.props.branches}
+            forHeader={this.props.forHeader}
+          />
+        </View>
         <View
-          className='headView'
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative"
-          }}
+          className='at-col at-col-1 at-col__offset-5'
+          style={{ height: "100%" }}
         >
-          <OpenData type='userAvatarUrl' />
-          <View
-            className='icon'
-            style={{
-              position: "absolute",
-              height: "96rpx",
-              width: "96rpx",
-              borderRadius: "50%",
-              border: "22rpx solid #fff"
-            }}
-          ></View>
+          <Avatar />
         </View>
       </View>
-    </View>
-  ) : (
-    <View
-      className='header-wrapper at-row at-row__justify--around at-row__align--center'
-      style={{ padding: "0 20rpx" }}
-    >
-      <Button onClick={goBackHome} className='btn-no-border'>
-        <IconFont name='back' size={55} className='at-col at-col-1' />
-      </Button>
-      <View className='at-col at-col-10' style={{ textAlign: "center" }}>
-        <Text
-          style={{
-            color: `${titleColor}`,
-            letterSpacing: "0.2em",
-            fontWeight: "bold"
-          }}
-        >
-          {title}
-        </Text>
-      </View>
-      <View className='at-col at-col-1'>
-        <View
-          className='headView'
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative"
-          }}
-        >
-          <OpenData type='userAvatarUrl' />
-          <View
-            className='icon'
+    ) : (
+      <View
+        className='header-wrapper at-row at-row__justify--around at-row__align--center'
+        style={{ padding: "0 20rpx" }}
+      >
+        <View style={{ display: "none" }}>
+          <BranchSelector
+            onGetBranch={this.onGetBranch}
+            branches={this.props.branches}
+            forHeader={this.props.forHeader}
+          />
+        </View>
+        <Button onClick={this.goBackHome} className='btn-no-border'>
+          <IconFont name='back' size={55} className='at-col at-col-1' />
+        </Button>
+        <View className='at-col at-col-10' style={{ textAlign: "center" }}>
+          <Text
             style={{
-              position: "absolute",
-              height: "96rpx",
-              width: "96rpx",
-              borderRadius: "50%",
-              border: "22rpx solid #fff"
+              color: `${this.props.titleColor}`,
+              letterSpacing: "0.2em",
+              fontWeight: "bold"
             }}
-          ></View>
+          >
+            {this.props.title}
+          </Text>
+        </View>
+        <View className='at-col at-col-1' style={{ height: "100%" }}>
+          <Avatar />
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 Header.externalClasses = ["btn-no-border", "btn-normal"];

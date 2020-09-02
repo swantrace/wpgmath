@@ -18,6 +18,9 @@ import "./index.css";
   })
 )
 export default class BranchSelector extends Component {
+  static defaultProps = {
+    branches: []
+  };
   state = {
     branch: "请选择分校",
     range: [],
@@ -60,6 +63,10 @@ export default class BranchSelector extends Component {
       );
     }
   }
+
+  goToHome = () => {
+    Taro.redirectTo({ url: "/packageHome/pages/home/index" });
+  };
 
   onChange = e => {
     let branchTemp = this.state.branch;
@@ -168,19 +175,38 @@ export default class BranchSelector extends Component {
           value={this.state.value}
         >
           {this.props.forHeader ? (
-            <View>
+            <View style={{ display: "flex", alignItems: "center" }}>
               <IconFont name='location' size={34} className='at-col at-col-1' />
-              <Text>{this.props.branchName}</Text>
+              <Text style={{ paddingLeft: "14rpx" }}>
+                {this.props.branchName}
+              </Text>
             </View>
           ) : (
             <View>
-              <Button>请选择分校</Button>
+              {!this.props.branches.length ? (
+                <Button
+                  style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}
+                  loading
+                  disabled
+                >
+                  请选择分校
+                </Button>
+              ) : (
+                <Button style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}>
+                  请选择分校
+                </Button>
+              )}
             </View>
           )}
         </Picker>
         {!this.props.forHeader && this.props.branchName != "请选择分校" ? (
           <View>
-            <Button>进入 {this.props.branchName}</Button>
+            <Button
+              onClick={this.goToHome}
+              style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}
+            >
+              进入 {this.props.branchName}
+            </Button>
           </View>
         ) : null}
       </View>

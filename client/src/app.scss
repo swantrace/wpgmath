@@ -3,14 +3,30 @@ $color-brand: #b5121b;
 $color-brand-light: #c84d54;
 $color-brand-dark: #910e16;
 @import "~taro-ui/dist/style/index.scss";
+@import "taro-parse/dist/style/main.scss";
+
+.at-avatar--large {
+  width: 180rpx;
+  height: 180rpx;
+  font-size: 48rpx;
+  line-height: 180rpx;
+}
+
+.at-accordion__info__title {
+  white-space: pre-wrap;
+}
+
+.at-modal__header {
+  padding: 0;
+}
 
 .main-content {
   margin-bottom: 180rpx;
-  margin-top: 80rpx;
+  margin-top: 85rpx;
 }
 
 .main-content-2 {
-  margin-bottom: 180rpx;
+  margin-top: 85rpx;
 }
 
 .headView {

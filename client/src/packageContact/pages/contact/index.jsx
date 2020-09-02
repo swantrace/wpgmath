@@ -2,7 +2,6 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Image, Map } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import TaroParser from "taro-parse";
-import "taro-parse/dist/style/main.scss";
 import Layout from "../../../components/layout/index.weapp";
 import "./contact.scss";
 

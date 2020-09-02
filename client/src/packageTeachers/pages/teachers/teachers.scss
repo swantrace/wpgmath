@@ -1,0 +1,30 @@
+.teacher-list-wrapper {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  text-align: justify;
+  font-size: 0.9em;
+  .teacher-wrapper {
+    padding-bottom: 30rpx;
+    .position-name-wrapper {
+      font-size: 1.1em;
+    }
+  }
+}
+
+.on-hire-wrapper {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #41b5e3;
+  padding-bottom: 40rpx;
+  .who-can-apply-dot {
+    font-weight: "bolder";
+    color: "#C4C4C4";
+    display: "inline-block";
+    padding-right: "5rpx";
+  }
+  .who-can-apply {
+    text-align: center;
+  }
+}

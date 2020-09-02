@@ -1,5 +1,9 @@
 import Taro from "@tarojs/taro";
-import { SWITCH_BRANCH_NAME, UPDATE_BRANCH_INFO } from "../constants/index";
+import {
+  SWITCH_BRANCH_NAME,
+  UPDATE_BRANCH_INFO,
+  UPDATE_BRANCHES
+} from "../constants/index";
 
 export const switchBranchName = (country, provinceOrState, branchName) => {
   return {
@@ -47,5 +51,31 @@ export const updateBranch = (country, provinceOrState, branchName) => {
   return dispatch => {
     dispatch(switchBranchName(country, provinceOrState, branchName));
     dispatch(updateBranchInfoWithDBQuery(country, provinceOrState, branchName));
+  };
+};
+
+export const updateBranches = branches => {
+  return {
+    type: UPDATE_BRANCHES,
+    payload: {
+      branches
+    }
+  };
+};
+
+export const updateBranchesWithDBQuery = (latitude, longitude) => {
+  return dispatch => {
+    return Taro.cloud
+      .callFunction({
+        name: "getBranchList",
+        data: {
+          latitude: latitude,
+          longitude: longitude
+        }
+      })
+      .then(res => {
+        const { result: branches } = res;
+        dispatch(updateBranches(branches));
+      });
   };
 };

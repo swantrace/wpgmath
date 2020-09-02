@@ -6,7 +6,10 @@ import "./customer_service_button.scss";
 export default function CustomerServiceButton() {
   return (
     <View>
-      <Button openType='contact' style={{ padding: "0", height: "182rpx" }}>
+      <Button
+        openType='contact'
+        style={{ padding: "0", height: "auto", backgroundColor: "#DE1F26" }}
+      >
         <Image mode='widthFix' src={csb} className='customer-service-button' />
       </Button>
     </View>

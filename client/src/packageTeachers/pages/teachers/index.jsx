@@ -1,44 +1,27 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image, Text } from "@tarojs/components";
+import { View, Text, Image } from "@tarojs/components";
+import { AtAvatar } from "taro-ui";
+import { connect } from "@tarojs/redux";
+import divider from "../../../assets/images/line.png";
 import Layout from "../../../components/layout/index.weapp";
 import "./teachers.scss";
 
+@connect(state => {
+  return {
+    teachers: state.branchInfo.teachers,
+    onHire: state.branchInfo.on_hire
+  };
+}, null)
 export default class Teachers extends Component {
-  teacherInfo = [
-    {
-      position: "校长",
-      name: "Michael Erkau",
-      introduction:
-        "Michael毕业于教育系学士学位，有着8年的教学经验并且Michael在IT 方便颇有见解。这些经验 让Michael相信数学在当今社会中扮演着重要的角色，而mathnasium正是一个能帮助孩子探寻数 学奥秘的地方。",
-      avatar:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/Michael Erkau.jpg"
-    },
-    {
-      position: "教师领队",
-      name: "Gerald Trojillo",
-      introduction:
-        "Gerald是曼大理科系的在读学生。在读期间，他在数学课程上取得了优异的成绩并且数次获得数 学竞赛的奖项。Gerald同时还在医院做志愿者，他热爱篮球，对生活充满热情。他丰富的数学知 识能很好的提高学生们的数学成绩。",
-      avatar:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/male.png"
-    },
-    {
-      position: "教师",
-      name: "Ansdeep Kaur",
-      introduction:
-        "Ansdeep持有数学系硕士学位和教育系学士学位。同时，她还有着6年的教学经验和4年的数学教 练的经验。Ansdeep在印度的时候，受到了100%的来自她教过的学生好评。",
-      avatar:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/female.png"
-    },
-    {
-      position: "教师",
-      name: "Ben Haverstick",
-      introduction:
-        "Ben是曼大的在读学生，就读于精算数学系。Ben从小就对数学产生了极高的兴趣。在高中时间 ，Ben经常自学数学并且给周围的同学和朋友提供辅导帮助。他的对数学的探寻和见解能帮助学 生们更容易的理解数学概念掌握数学技巧。",
-      avatar:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/male.png"
+  onShareAppMessage(res) {
+    if (res.from === "button") {
+      console.log(res.target);
     }
-  ];
-
+    return {
+      title: "A+美国数学教育培训",
+      path: "/packageTeachers/pages/teachers/index"
+    };
+  }
   render() {
     return (
       <Layout
@@ -49,24 +32,125 @@ export default class Teachers extends Component {
       >
         <View className='main-content-2'>
           <View className='teacher-list-wrapper'>
-            {this.teacherInfo.map((teacher, index) => (
-              <View
-                className='at-row'
-                key={`${teacher.name.replace(" ", "") + index}`}
-              >
-                {teacher.position}/{teacher.introduction}
-                <Image src={teacher.avatar} />
-              </View>
-            ))}
+            {this.props.teachers.map((teacher, index) =>
+              index % 2 == 0 ? (
+                <View
+                  key={teacher._id}
+                  className='teacher-wrapper even-teacher-wrapper at-row at-row__align--center at-row__justify--center'
+                >
+                  <View
+                    className='avatar-wrapper at-col at-col-5'
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <AtAvatar
+                      circle
+                      image={teacher.avatar}
+                      size='large'
+                    ></AtAvatar>
+                  </View>
+                  <View
+                    className='introduction-wrapper at-col at-col-7'
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      flexDirection: "column"
+                    }}
+                  >
+                    <View
+                      className='position-name-wrapper'
+                      style={{ textAlign: "center" }}
+                    >
+                      {teacher.position}: {teacher.name}
+                    </View>
+                    <View className='divider-wrapper'>
+                      <Image
+                        src={divider}
+                        style={{ width: "100%", height: "20rpx" }}
+                      />
+                    </View>
+                    <View
+                      className='introduction'
+                      style={{ whiteSpace: "pre-wrap" }}
+                    >
+                      {teacher.introduction}
+                    </View>
+                  </View>
+                </View>
+              ) : (
+                <View
+                  key={teacher._id}
+                  className='teacher-wrapper odd-teacher-wrapper at-row at-row__align--center at-row__justify--center'
+                >
+                  <View
+                    className='introduction-wrapper at-col-7'
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      flexDirection: "column"
+                    }}
+                  >
+                    <View
+                      className='position-name-wrapper'
+                      style={{ textAlign: "center" }}
+                    >
+                      {teacher.position}: {teacher.name}
+                    </View>
+                    <View className='divider-wrapper'>
+                      <Image
+                        src={divider}
+                        style={{ width: "100%", height: "20rpx" }}
+                      />
+                    </View>
+                    <View
+                      className='introduction'
+                      style={{ whiteSpace: "pre-wrap" }}
+                    >
+                      {teacher.introduction}
+                    </View>
+                  </View>
+                  <View
+                    className='avatar-wrapper at-col-5'
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <AtAvatar
+                      circle
+                      image={teacher.avatar}
+                      size='large'
+                    ></AtAvatar>
+                  </View>
+                </View>
+              )
+            )}
           </View>
-        </View>
-        <View>
-          <Text>我们开放优秀的工作机会</Text>
-        </View>
-        <View>
-          <View>在校大学生</View>
-          <View>优秀的高中生</View>
-          <View>退休教师</View>
+          {this.props.onHire ? (
+            <View className='on-hire-wrapper'>
+              <View
+                style={{
+                  textAlign: "center",
+                  fontSize: "26rpx",
+                  lineHeight: "30rpx",
+                  color: "#7B22EC",
+                  paddingBottom: "20rpx"
+                }}
+              >
+                我们开放优秀的工作机会
+              </View>
+              <View className='who-can-apply-wrapper at-row at-row__justify--center'>
+                <View className='at-col at-col-4 who-can-apply'>
+                  <Text className='who-can-apply-dot'>&bull;</Text>
+                  在校大学生
+                </View>
+                <View className='at-col at-col-4 who-can-apply'>
+                  <Text className='who-can-apply-dot'>&bull;</Text>
+                  优秀的高中生
+                </View>
+                <View className='at-col at-col-4 who-can-apply'>
+                  <Text className='who-can-apply-dot'>&bull;</Text>
+                  退休教师
+                </View>
+              </View>
+            </View>
+          ) : null}
         </View>
       </Layout>
     );

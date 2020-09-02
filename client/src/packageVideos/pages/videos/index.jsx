@@ -1,36 +1,35 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Image } from "@tarojs/components";
+import { View, Video } from "@tarojs/components";
 import { AtDivider } from "taro-ui";
+import { connect } from "@tarojs/redux";
 import Layout from "../../../components/layout/index.weapp";
 import "./videos.scss";
 
+@connect(state => {
+  return {
+    videos: state.branchInfo.videos
+  };
+}, null)
 export default class Videos extends Component {
-  videoInfo = [
-    {
-      _id: "6518b7395f3f00f1000721604f0b7a0b",
-      screenshot:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/screenshot1.jpg",
-      video:
-        "cloud://mathnasium-cloud-w47n8.6d61-mathnasium-cloud-w47n8-1300515994/swwinnipeg/Colombia - 24746.mp4",
-      name: "卡通短片1"
-    },
-    {
-      _id: "b5416b755f3f012e000888fa461b2042",
-      screenshot:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/screenshot2.jpg",
-      video:
-        "cloud://mathnasium-cloud-w47n8.6d61-mathnasium-cloud-w47n8-1300515994/swwinnipeg/Fall - 28746.mp4",
-      name: "卡通短片2"
-    },
-    {
-      _id: "b5416b755f3f017f00088c1307545109",
-      screenshot:
-        "cloud://mathnasium-jepku.6d61-mathnasium-jepku-1300955601/swwinnipeg/screenshot3.jpg",
-      video:
-        "cloud://mathnasium-cloud-w47n8.6d61-mathnasium-cloud-w47n8-1300515994/swwinnipeg/Ferris Wheel - 27057.mp4",
-      name: "卡通短片3"
+  state = {
+    videoContext: null
+  };
+  onPlay = e => {
+    if (this.state.videoContext) {
+      this.state.videoContext.pause();
     }
-  ];
+    const newVideoContext = Taro.createVideoContext(e.target.id);
+    newVideoContext.requestFullScreen();
+    this.setState({ videoContext: newVideoContext });
+  };
+  onPause = e => {
+    const newVideoContext = Taro.createVideoContext(e.target.id);
+    newVideoContext.exitFullScreen();
+  };
+  onEnded = e => {
+    const newVideoContext = Taro.createVideoContext(e.target.id);
+    newVideoContext.exitFullScreen();
+  };
   render() {
     return (
       <Layout
@@ -41,20 +40,26 @@ export default class Videos extends Component {
       >
         <View className='main-content-2'>
           <View className='videos-list-wrapper'>
-            {this.videoInfo.map(video => (
-              <View key={video.name} className='video-item-wrapper'>
-                <View className='video-screenshot-wrapper'>
-                  <Image
-                    src={video.screenshot}
-                    mode='aspectFill'
-                    className='taro-img__mode-aspectfill'
-                  />
+            {this.props.videos.map(video =>
+              video.screenshot && video.video ? (
+                <View key={video._id} className='video-item-wrapper'>
+                  <View className='video-item-wrapper'>
+                    <Video
+                      src={video.video}
+                      poster={video.screenshot}
+                      id={video._id}
+                      style={{ width: "100vw", height: "300rpx" }}
+                      onPlay={this.onPlay}
+                      onPause={this.onPause}
+                      onEnded={this.onEnded}
+                    />
+                  </View>
+                  <View className='video-name-wrapper'>
+                    <AtDivider content={video.name} />
+                  </View>
                 </View>
-                <View className='video-name-wrapper'>
-                  <AtDivider content={video.name} />
-                </View>
-              </View>
-            ))}
+              ) : null
+            )}
           </View>
         </View>
       </Layout>

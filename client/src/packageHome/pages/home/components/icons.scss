@@ -2,6 +2,18 @@
 
 .icons-wrapper {
   margin-top: 20rpx;
+  .modal-title-wrapper {
+    display: flex;
+    color: white;
+    line-height: 60rpx;
+    font-size: 1em;
+    &.classday-title-wrapper {
+      background: linear-gradient(to right, #ffe6dc, #de1f26);
+    }
+    &.holiday-title-wrapper {
+      background: linear-gradient(to right, #37ecba, #72afd3);
+    }
+  }
   .icon-title-wrapper {
     padding: 10rpx 0 30rpx;
     display: flex;

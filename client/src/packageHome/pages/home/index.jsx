@@ -10,11 +10,10 @@ import "./home.scss";
 export default class Home extends Component {
   onShareAppMessage(res) {
     if (res.from === "button") {
-      // 来自页面内转发按钮
       console.log(res.target);
     }
     return {
-      title: "Hello World",
+      title: "A+美国数学教育培训",
       path: "/packageHome/pages/home/index"
     };
   }
