@@ -5,12 +5,12 @@
   "description": "Winnipeg Math",
   "appid": "wx5acbf23a3417385e",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": false,
     "postcss": false,
     "preloadBackgroundData": false,
-    "minified": false,
+    "minified": true,
     "newFeature": false,
     "coverView": true,
     "nodeModules": false,
@@ -22,6 +22,8 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -31,13 +33,13 @@
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": [],
-    "useMultiFrameRuntime": true,
-    "useApiHook": false
+    "packNpmRelationList": []
   },
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "libVersion": "2.12.2",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "current": -1,
@@ -66,6 +68,62 @@
           "id": -1,
           "name": "normal",
           "pathName": "packageHome/pages/home/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageTeachers/pages/teachers/index",
+          "pathName": "packageTeachers/pages/teachers/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageStudents/pages/students/index",
+          "pathName": "packageStudents/pages/students/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageQuestions/pages/questions/index",
+          "pathName": "packageQuestions/pages/questions/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageOneOnOneForm/pages/oneonone/index",
+          "pathName": "packageOneOnOneForm/pages/oneonone/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageVideos/pages/videos/index",
+          "pathName": "packageVideos/pages/videos/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageTeachers/pages/teachers/index",
+          "pathName": "packageTeachers/pages/teachers/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageMethod/pages/method/index",
+          "pathName": "packageMethod/pages/method/index",
           "scene": null
         }
       ]
