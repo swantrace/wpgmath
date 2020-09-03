@@ -9,6 +9,9 @@ exports.main = async (event, context) => {
 
   switch (event.Content) {
     case 'booking':
+    case 'Booking':
+    case '預約':
+    case '预约':
       try {
         const result = await cloud.openapi.customerServiceMessage.send({
           touser: wxContext.OPENID,

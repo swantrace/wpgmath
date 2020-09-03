@@ -2,66 +2,85 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Picker, Button } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import IconFont from "../iconfont";
-import { updateBranch } from "../../actions/index";
-import "./index.css";
+import { updateBranch, updateBranchesWithDBQuery } from "../../actions/index";
+import "./index.scss";
 
 @connect(
   state => {
     return {
-      branchName: state.branchName
+      branchName: state.branchName,
+      branches: state.branches
     };
   },
   dispatch => ({
     dispatchUpdateBranch(country, provinceOrState, branchName) {
-      dispatch(updateBranch(country, provinceOrState, branchName));
+      return dispatch(updateBranch(country, provinceOrState, branchName));
+    },
+    dispatchUpdateBranchesWithDBQuery(latitude, longitude) {
+      return dispatch(updateBranchesWithDBQuery(latitude, longitude));
     }
   })
 )
 export default class BranchSelector extends Component {
-  static defaultProps = {
-    branches: []
-  };
   state = {
     branch: "请选择分校",
     range: [],
     value: [0, 0, 0]
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.branches.length == 0 && nextProps.branches.length > 0) {
-      let range = this.state.range;
-      let temp = [];
-      for (let i = 0; i < nextProps.branches.length; i++) {
-        temp.push(nextProps.branches[i].name);
+  componentDidMount() {
+    Taro.getLocation({
+      success: res => {
+        this.locationToBranches(res.latitude, res.longitude);
+      },
+      fail: () => {
+        this.locationToBranches(49.8844, -97.14704);
       }
-      range.push(temp);
-      temp = [];
-      for (let i = 0; i < nextProps.branches[0].provinceOrState.length; i++) {
-        temp.push(nextProps.branches[0].provinceOrState[i].name);
-      }
-      range.push(temp);
-      temp = [];
-      for (
-        let i = 0;
-        i < nextProps.branches[0].provinceOrState[0].branch.length;
-        i++
-      ) {
-        temp.push(nextProps.branches[0].provinceOrState[0].branch[i]);
-      }
-      range.push(temp);
-      this.setState(
-        {
-          range: range,
-          branch: `${range[2][this.state.value[2]]}`
-        },
-        () => {
-          const country = this.state.range[0][this.state.value[0]];
-          const provinceOrState = this.state.range[1][this.state.value[1]];
-          const branchName = this.state.range[2][this.state.value[2]];
-          this.props.dispatchUpdateBranch(country, provinceOrState, branchName);
-        }
-      );
+    });
+  }
+
+  branchesToRange(branches) {
+    let range = [];
+    let temp = [];
+    for (let i = 0; i < branches.length; i++) {
+      temp.push(branches[i].name);
     }
+    range.push(temp);
+    temp = [];
+    for (let i = 0; i < branches[0].provinceOrState.length; i++) {
+      temp.push(branches[0].provinceOrState[i].name);
+    }
+    range.push(temp);
+    temp = [];
+    for (let i = 0; i < branches[0].provinceOrState[0].branch.length; i++) {
+      temp.push(branches[0].provinceOrState[0].branch[i]);
+    }
+    range.push(temp);
+    return range;
+  }
+
+  locationToBranches(latitude, longitude) {
+    this.props
+      .dispatchUpdateBranchesWithDBQuery(latitude, longitude)
+      .then(() => {
+        const range = this.branchesToRange(this.props.branches);
+        this.setState(
+          {
+            range: range,
+            branch: `${range[2][this.state.value[2]]}`
+          },
+          () => {
+            const country = this.state.range[0][this.state.value[0]];
+            const provinceOrState = this.state.range[1][this.state.value[1]];
+            const branchName = this.state.range[2][this.state.value[2]];
+            this.props.dispatchUpdateBranch(
+              country,
+              provinceOrState,
+              branchName
+            );
+          }
+        );
+      });
   }
 
   goToHome = () => {
@@ -176,7 +195,11 @@ export default class BranchSelector extends Component {
         >
           {this.props.forHeader ? (
             <View style={{ display: "flex", alignItems: "center" }}>
-              <IconFont name='location' size={34} className='at-col at-col-1' />
+              <IconFont
+                name='edit-location'
+                size={55}
+                className='at-col at-col-1'
+              />
               <Text style={{ paddingLeft: "14rpx" }}>
                 {this.props.branchName}
               </Text>
@@ -185,14 +208,14 @@ export default class BranchSelector extends Component {
             <View>
               {!this.props.branches.length ? (
                 <Button
-                  style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}
+                  className='branch-selector-button branch-selector-select-button'
                   loading
                   disabled
                 >
                   请选择分校
                 </Button>
               ) : (
-                <Button style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}>
+                <Button className='branch-selector-button branch-selector-select-button'>
                   请选择分校
                 </Button>
               )}
@@ -202,8 +225,8 @@ export default class BranchSelector extends Component {
         {!this.props.forHeader && this.props.branchName != "请选择分校" ? (
           <View>
             <Button
+              className='branch-selector-button branch-selector-enter-button'
               onClick={this.goToHome}
-              style={{ backgroundColor: "rgba(201, 76, 76, 0.3)" }}
             >
               进入 {this.props.branchName}
             </Button>

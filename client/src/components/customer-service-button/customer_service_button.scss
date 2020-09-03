@@ -1,7 +1,8 @@
 :host {
   position: fixed;
   right: 0;
-  bottom: 382rpx;
+  bottom: 408rpx;
+  z-index: 999999999;
 }
 
 .customer-service-button {

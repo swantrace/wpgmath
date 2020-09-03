@@ -51,8 +51,8 @@ export default class Method extends Component {
                         lineHeight: "40rpx"
                       }}
                     >
-                      {method.title}{" "}
-                      <Image
+                      {method.title}
+                      {/* <Image
                         src={method.icon}
                         mode='center'
                         style={{
@@ -60,7 +60,7 @@ export default class Method extends Component {
                           height: "40rpx",
                           paddingLeft: "10rpx"
                         }}
-                      />
+                      /> */}
                     </View>
                     <View
                       className='introduction'
@@ -91,8 +91,8 @@ export default class Method extends Component {
                         lineHeight: "40rpx"
                       }}
                     >
-                      {method.title}{" "}
-                      <Image
+                      {method.title}
+                      {/* <Image
                         src={method.icon}
                         mode='center'
                         style={{
@@ -100,7 +100,7 @@ export default class Method extends Component {
                           height: "40rpx",
                           paddingLeft: "10rpx"
                         }}
-                      />
+                      /> */}
                     </View>
                     <View
                       className='introduction'

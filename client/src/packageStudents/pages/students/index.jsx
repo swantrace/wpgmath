@@ -2,6 +2,7 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Image } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 import TaroParser from "taro-parse";
+import OneOnOneButton from "../../../components/oneonone/index.weapp";
 import divider from "../../../assets/images/line.png";
 import Layout from "../../../components/layout/index.weapp";
 import "./students.scss";
@@ -66,6 +67,8 @@ export default class Students extends Component {
               style={{ width: "100vw", marginBottom: "20rpx" }}
             />
           </View>
+          <View style={{ height: "30rpx" }} />
+          <OneOnOneButton />
         </View>
       </Layout>
     );

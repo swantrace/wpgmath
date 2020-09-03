@@ -13,9 +13,7 @@ import "./app.scss";
 const store = configStore();
 
 class App extends Component {
-  componentWillMount() {
-    console.log(this.$router.params);
-  }
+  componentWillMount() {}
 
   componentDidMount() {
     if (process.env.TARO_ENV === "weapp") {

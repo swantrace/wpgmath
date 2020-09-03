@@ -36,7 +36,7 @@ export default class Contact extends Component {
           <View className='contact-image-wrapper'>
             <Image
               src={this.props.contactHeadImage}
-              mode='scaleToFill'
+              mode='widthFix'
               style={{ width: "100%" }}
             />
           </View>
@@ -65,14 +65,25 @@ export default class Contact extends Component {
           >
             温尼伯联系电话：{this.props.phone}
           </View>
-          <Map
-            longitude={this.props.coordinates[0]}
-            latitude={this.props.coordinates[1]}
-            style={{
-              width: "100vw",
-              height: "80vw"
-            }}
-          ></Map>
+          {this.props.coordinates && this.props.coordinates.length && (
+            <Map
+              enableZoom={false}
+              enableScroll={false}
+              scale={13}
+              longitude={this.props.coordinates[0]}
+              latitude={this.props.coordinates[1]}
+              markers={[
+                {
+                  id: 0,
+                  latitude: this.props.coordinates[1],
+                  longitude: this.props.coordinates[0],
+                  iconPath:
+                    "https://6d61-mathnasium-jepku-1300955601.tcb.qcloud.la/locate.png?sign=86d10df7b373d8d947c09db03427c7e1&t=1599139476"
+                }
+              ]}
+              style={{ margin: "60rpx auto 0" }}
+            ></Map>
+          )}
         </View>
       </Layout>
     );

@@ -25,7 +25,7 @@ export default class History extends Component {
           <View className='header-image-wrapper'>
             <Image
               src={this.props.historyHeadImage}
-              mode='scaleToFill'
+              mode='widthFix'
               style={{ width: "100%" }}
             />
           </View>

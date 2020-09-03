@@ -5,6 +5,15 @@ $color-brand-dark: #910e16;
 @import "~taro-ui/dist/style/index.scss";
 @import "taro-parse/dist/style/main.scss";
 
+.h2w__main {
+  margin: 0 64rpx;
+  padding-top: 20rpx;
+}
+
+.at-accordion__header {
+  background-color: #f1f1f1;
+}
+
 .at-avatar--large {
   width: 180rpx;
   height: 180rpx;
@@ -27,6 +36,7 @@ $color-brand-dark: #910e16;
 
 .main-content-2 {
   margin-top: 85rpx;
+  margin-bottom: 180rpx;
 }
 
 .headView {

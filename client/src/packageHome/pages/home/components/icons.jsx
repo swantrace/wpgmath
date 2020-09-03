@@ -38,7 +38,7 @@ const iconInfos = [
   },
   {
     icon: "travelholidayvacat",
-    title: "下课时间"
+    title: "公共假期"
   }
 ];
 
@@ -51,9 +51,14 @@ const iconInfos = [
 export default class Icons extends Component {
   state = {
     modalIsOpened: false,
-    holidayOrClass: true
+    holidayOrClass: true,
+    clicked: null
   };
   handleClick = goal => {
+    this.setState({ clicked: goal });
+    setTimeout(() => {
+      this.setState({ clicked: null });
+    }, 1000);
     switch (goal) {
       case "custom-teacher":
         Taro.redirectTo({ url: "/packageTeachers/pages/teachers/index" });
@@ -115,7 +120,15 @@ export default class Icons extends Component {
     return (
       <View className='icons-wrapper at-row at-row--wrap at-row__justify--center at-row__align--center'>
         {iconInfos.map(iconInfo => (
-          <View className='at-col at-col-3' key={iconInfo.icon}>
+          <View
+            className='at-col at-col-3'
+            key={iconInfo.icon}
+            style={
+              this.state.clicked == iconInfo.icon
+                ? { backgroundColor: "#F1F1F1" }
+                : {}
+            }
+          >
             <View className='icon-title-wrapper'>
               <Button
                 onClick={() => {

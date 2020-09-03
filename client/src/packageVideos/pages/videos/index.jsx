@@ -45,7 +45,7 @@ export default class Videos extends Component {
                 <View key={video._id} className='video-item-wrapper'>
                   <View className='video-item-wrapper'>
                     <Video
-                      src={video.video}
+                      src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
                       poster={video.screenshot}
                       id={video._id}
                       style={{ width: "100vw", height: "300rpx" }}

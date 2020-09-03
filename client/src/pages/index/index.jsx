@@ -57,7 +57,7 @@ export default class Index extends Component {
         </View>
         <Image
           src={indexBottomImage}
-          mode='scaleToFill'
+          mode='widthFix'
           style={{ position: "absolute", bottom: "0", width: "100vw" }}
         />
       </View>

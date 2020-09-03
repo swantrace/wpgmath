@@ -8,7 +8,12 @@ export default function CustomerServiceButton() {
     <View>
       <Button
         openType='contact'
-        style={{ padding: "0", height: "auto", backgroundColor: "#DE1F26" }}
+        style={{
+          padding: "0",
+          height: "auto",
+          backgroundColor: "#DE1F26",
+          zIndex: "999999"
+        }}
       >
         <Image mode='widthFix' src={csb} className='customer-service-button' />
       </Button>

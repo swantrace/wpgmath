@@ -22,7 +22,10 @@ export default class OneOnOneButton extends Component {
 
   render() {
     return (
-      <View style={{ display: "flex" }}>
+      <View
+        className='one-on-one-button-wrapper'
+        style={{ padding: "0 64rpx" }}
+      >
         <Image
           mode='widthFix'
           src={oneonone}
@@ -35,7 +38,7 @@ export default class OneOnOneButton extends Component {
         />
         <AtToast
           isOpened={this.state.isOpened}
-          text='发送booking给客服，获得链接'
+          text='点击右侧联系客服按钮，打开对话界面，发送“预约”，获取预约网页链接'
         ></AtToast>
       </View>
     );

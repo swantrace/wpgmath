@@ -7,29 +7,29 @@ import BranchSelector from "../branch-selector/index.weapp";
 import Avatar from "./Avatar.weapp";
 import "./header.scss";
 
-@connect(
-  state => ({
-    branches: state.branches
-  }),
-  dispatch => ({
-    dispatchUpdateBranchesWithDBQuery(latitude, longitude) {
-      dispatch(updateBranchesWithDBQuery(latitude, longitude));
-    }
-  })
-)
+// @connect(
+//   state => ({
+//     branches: state.branches
+//   }),
+//   dispatch => ({
+//     dispatchUpdateBranchesWithDBQuery(latitude, longitude) {
+//       dispatch(updateBranchesWithDBQuery(latitude, longitude));
+//     }
+//   })
+// )
 export default class Header extends Component {
-  componentDidMount() {
-    if (this.props.branches && this.props.branches.length == 0) {
-      Taro.getLocation({
-        success: res => {
-          this.props.dispatchUpdateBranchesWithDBQuery(
-            res.latitude,
-            res.longitude
-          );
-        }
-      });
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.branches && this.props.branches.length == 0) {
+  //     Taro.getLocation({
+  //       success: res => {
+  //         this.props.dispatchUpdateBranchesWithDBQuery(
+  //           res.latitude,
+  //           res.longitude
+  //         );
+  //       }
+  //     });
+  //   }
+  // }
 
   goBackHome = () => {
     Taro.redirectTo({ url: "/packageHome/pages/home/index" });
@@ -44,7 +44,8 @@ export default class Header extends Component {
       <View className='header-wrapper at-row at-row__justify--around at-row__align--center'>
         <View className='at-col at-col-5' style={{ height: "100%" }}>
           <BranchSelector
-            branches={this.props.branches}
+            onGetBranch={this.onGetBranch}
+            // branches={this.props.branches}
             forHeader={this.props.forHeader}
           />
         </View>
@@ -58,12 +59,12 @@ export default class Header extends Component {
     ) : (
       <View
         className='header-wrapper at-row at-row__justify--around at-row__align--center'
-        style={{ padding: "0 20rpx" }}
+        style={{ padding: "12rpx 20rpx" }}
       >
         <View style={{ display: "none" }}>
           <BranchSelector
             onGetBranch={this.onGetBranch}
-            branches={this.props.branches}
+            // branches={this.props.branches}
             forHeader={this.props.forHeader}
           />
         </View>

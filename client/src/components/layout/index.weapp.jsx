@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import TopLogo from "../toplogo/index.weapp";
 import Header from "../header/index.weapp";
 import CustomerServiceButton from "../customer-service-button/index.weapp";
-import OneOnOneButton from "../oneonone/index.weapp";
+// import OneOnOneButton from "../oneonone/index.weapp";
 import Footer from "../footer/index.weapp";
 import "./layout.scss";
 
@@ -20,14 +20,9 @@ export default class Layout extends Component {
           btn-no-border='btn-no-border'
           forHeader
         />
-        {this.props.children}
-        <OneOnOneButton
-          hasFooter={this.props.currentTabNumber ? true : false}
-        />
         <CustomerServiceButton />
-        {this.props.currentTabNumber && (
-          <Footer current={this.props.currentTabNumber} />
-        )}
+        {this.props.children}
+        <Footer current={this.props.currentTabNumber} />
       </View>
     );
   }

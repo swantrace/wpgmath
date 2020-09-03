@@ -4,6 +4,7 @@ import Layout from "../../../components/layout/index.weapp";
 import HomeSwiper from "./components/swiper";
 import Icons from "./components/icons";
 import News from "./components/news";
+import OneOnOneButton from "../../../components/oneonone/index.weapp";
 import divider from "../../../assets/images/line.png";
 import "./home.scss";
 
@@ -36,6 +37,9 @@ export default class Home extends Component {
           </View>
           <View className='news-wrapper'>
             <News />
+          </View>
+          <View className='oneonone-button-wrapper'>
+            <OneOnOneButton />
           </View>
         </View>
       </Layout>

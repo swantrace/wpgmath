@@ -1,0 +1,28 @@
+.taro-region-picker {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: left;
+  font-size: 34rpx;
+  padding: 0;
+
+  &.taro-region-picker-gray {
+    color: #999999;
+  }
+
+  &.taro-region-picker-black {
+    color: #000000;
+  }
+
+  .branch-selector-button {
+    background-color: rgba(201, 76, 76, 0.3);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 440rpx;
+    padding: 20rpx;
+    transition-duration: 0.4s;
+    border: none;
+    &.branch-selector-enter-button {
+      margin-top: 40rpx;
+    }
+  }
+}

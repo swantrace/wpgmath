@@ -25,6 +25,9 @@
       padding: 0;
       background: none;
       border: none;
+      &.button-hover {
+        background-color: red;
+      }
     }
     .btn-no-border::after {
       border: none;

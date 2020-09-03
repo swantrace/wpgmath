@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 
+import IconEditLocation from './IconEditLocation';
 import IconBack from './IconBack';
 import IconDizhidingwei from './IconDizhidingwei';
 import IconActivity from './IconActivity';
@@ -24,6 +25,8 @@ import IconSelectdefault from './IconSelectdefault';
 
 const IconFont = ({ name, ...rest }) => {
   switch (name) {
+    case 'edit-location':
+      return <IconEditLocation {...rest} />;
     case 'back':
       return <IconBack {...rest} />;
     case 'dizhidingwei':
