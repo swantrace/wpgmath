@@ -17,7 +17,7 @@ export default class Questions extends Component {
   };
   onClick = (open, event, index) => {
     this.setState({
-      currentIndex: index
+      currentIndex: this.state.currentIndex === index ? null : index
     });
   };
   render() {

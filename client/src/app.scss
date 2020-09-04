@@ -5,6 +5,11 @@ $color-brand-dark: #910e16;
 @import "~taro-ui/dist/style/index.scss";
 @import "taro-parse/dist/style/main.scss";
 
+.at-toast .toast-body-content__img-item {
+  width: 300rpx;
+  height: 300rpx;
+}
+
 .h2w__main {
   margin: 0 64rpx;
   padding-top: 20rpx;

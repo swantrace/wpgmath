@@ -67,8 +67,6 @@ export default class Contact extends Component {
           </View>
           {this.props.coordinates && this.props.coordinates.length && (
             <Map
-              enableZoom={false}
-              enableScroll={false}
               scale={13}
               longitude={this.props.coordinates[0]}
               latitude={this.props.coordinates[1]}
@@ -78,7 +76,7 @@ export default class Contact extends Component {
                   latitude: this.props.coordinates[1],
                   longitude: this.props.coordinates[0],
                   iconPath:
-                    "https://6d61-mathnasium-jepku-1300955601.tcb.qcloud.la/locate.png?sign=86d10df7b373d8d947c09db03427c7e1&t=1599139476"
+                    "https://6d61-mathnasium-jepku-1300955601.tcb.qcloud.la/location.png?sign=7866eefd1dd5474320b9184d5d48c9fc&t=1599180540"
                 }
               ]}
               style={{ margin: "60rpx auto 0" }}

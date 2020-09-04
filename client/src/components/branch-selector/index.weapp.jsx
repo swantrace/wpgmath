@@ -23,7 +23,7 @@ import "./index.scss";
 )
 export default class BranchSelector extends Component {
   state = {
-    branch: "请选择分校",
+    // branch: "请选择分校",
     range: [],
     value: [0, 0, 0]
   };
@@ -31,10 +31,14 @@ export default class BranchSelector extends Component {
   componentDidMount() {
     Taro.getLocation({
       success: res => {
-        this.locationToBranches(res.latitude, res.longitude);
+        this.locationToBranches(
+          res.latitude,
+          res.longitude,
+          this.props.branches
+        );
       },
       fail: () => {
-        this.locationToBranches(49.8844, -97.14704);
+        this.locationToBranches(49.8844, -97.14704, this.props.branches);
       }
     });
   }
@@ -59,28 +63,44 @@ export default class BranchSelector extends Component {
     return range;
   }
 
-  locationToBranches(latitude, longitude) {
-    this.props
-      .dispatchUpdateBranchesWithDBQuery(latitude, longitude)
-      .then(() => {
-        const range = this.branchesToRange(this.props.branches);
-        this.setState(
-          {
-            range: range,
-            branch: `${range[2][this.state.value[2]]}`
-          },
-          () => {
-            const country = this.state.range[0][this.state.value[0]];
-            const provinceOrState = this.state.range[1][this.state.value[1]];
-            const branchName = this.state.range[2][this.state.value[2]];
-            this.props.dispatchUpdateBranch(
-              country,
-              provinceOrState,
-              branchName
-            );
-          }
-        );
-      });
+  locationToBranches(latitude, longitude, branches) {
+    if (branches.length == 0) {
+      this.props
+        .dispatchUpdateBranchesWithDBQuery(latitude, longitude)
+        .then(() => {
+          const range = this.branchesToRange(this.props.branches);
+          this.setState(
+            {
+              range: range
+              // branch: `${range[2][this.state.value[2]]}`
+            },
+            () => {
+              const country = this.state.range[0][this.state.value[0]];
+              const provinceOrState = this.state.range[1][this.state.value[1]];
+              const branchName = this.state.range[2][this.state.value[2]];
+              this.props.dispatchUpdateBranch(
+                country,
+                provinceOrState,
+                branchName
+              );
+            }
+          );
+        });
+    } else {
+      const range = this.branchesToRange(branches);
+      this.setState(
+        {
+          range: range
+          // branch: `${range[2][this.state.value[2]]}`
+        },
+        () => {
+          const country = this.state.range[0][this.state.value[0]];
+          const provinceOrState = this.state.range[1][this.state.value[1]];
+          const branchName = this.state.range[2][this.state.value[2]];
+          this.props.dispatchUpdateBranch(country, provinceOrState, branchName);
+        }
+      );
+    }
   }
 
   goToHome = () => {
@@ -88,16 +108,16 @@ export default class BranchSelector extends Component {
   };
 
   onChange = e => {
-    let branchTemp = this.state.branch;
+    // let branchTemp = this.state.branch;
     let rangeTemp = this.state.range;
     let valueTemp = this.state.value;
 
     valueTemp = e.detail.value;
-    branchTemp = `${rangeTemp[2][valueTemp[2]]}`;
+    // branchTemp = `${rangeTemp[2][valueTemp[2]]}`;
 
     this.setState(
       {
-        branch: branchTemp,
+        // branch: branchTemp,
         range: rangeTemp,
         value: valueTemp
       },
@@ -181,7 +201,7 @@ export default class BranchSelector extends Component {
     return (
       <View
         className={
-          this.state.branch == "请选择分校"
+          this.props.branchName == "请选择分校"
             ? "taro-region-picker taro-region-picker-gray"
             : "taro-region-picker taro-region-picker-black"
         }

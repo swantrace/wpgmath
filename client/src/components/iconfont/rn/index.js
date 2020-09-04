@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 
+import IconLocation from './IconLocation';
 import IconEditLocation from './IconEditLocation';
 import IconBack from './IconBack';
 import IconDizhidingwei from './IconDizhidingwei';
@@ -9,7 +10,6 @@ import IconArrowright from './IconArrowright';
 import IconArrowleft from './IconArrowleft';
 import IconTeachInfo from './IconTeachInfo';
 import IconTravelholidayvacat from './IconTravelholidayvacat';
-import IconLocation from './IconLocation';
 import IconLishi from './IconLishi';
 import IconContact from './IconContact';
 import IconArrowdown from './IconArrowdown';
@@ -25,6 +25,8 @@ import IconSelectdefault from './IconSelectdefault';
 
 const IconFont = ({ name, ...rest }) => {
   switch (name) {
+    case 'location':
+      return <IconLocation {...rest} />;
     case 'edit-location':
       return <IconEditLocation {...rest} />;
     case 'back':
@@ -41,8 +43,6 @@ const IconFont = ({ name, ...rest }) => {
       return <IconTeachInfo {...rest} />;
     case 'travelholidayvacat':
       return <IconTravelholidayvacat {...rest} />;
-    case 'location':
-      return <IconLocation {...rest} />;
     case 'lishi':
       return <IconLishi {...rest} />;
     case 'contact':

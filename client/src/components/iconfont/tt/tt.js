@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // edit-location | back | dizhidingwei | activity | Arrowright | Arrowleft | teach-info | travelholidayvacat | location | lishi | contact | Arrowdown | home | SCHEDULE | question | shoucex | video | Share | student | custom-teacher | selectdefault
+    // location | edit-location | back | dizhidingwei | activity | Arrowright | Arrowleft | teach-info | travelholidayvacat | lishi | contact | Arrowdown | home | SCHEDULE | question | shoucex | video | Share | student | custom-teacher | selectdefault
     name: {
       type: String,
     },
