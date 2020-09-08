@@ -54,11 +54,11 @@ class App extends Component {
         name: "questions_page",
         pages: ["pages/questions/index"]
       },
-      {
-        root: "packageVideos",
-        name: "videos_page",
-        pages: ["pages/videos/index"]
-      },
+      // {
+      //   root: "packageVideos",
+      //   name: "videos_page",
+      //   pages: ["pages/videos/index"]
+      // },
       {
         root: "packageMethod",
         name: "method_page",
@@ -83,7 +83,7 @@ class App extends Component {
           "teachers_page",
           "students_page",
           "questions_page",
-          "videos_page",
+          // "videos_page",
           "method_page",
           "contact_page",
           "contact_page",
@@ -102,10 +102,10 @@ class App extends Component {
         network: "all",
         packages: ["home_page"]
       },
-      "packageVideos/pages/videos/index": {
-        network: "all",
-        packages: ["home_page"]
-      },
+      // "packageVideos/pages/videos/index": {
+      //   network: "all",
+      //   packages: ["home_page"]
+      // },
       "packageMethod/pages/method/index": {
         network: "all",
         packages: ["home_page", "history_page", "contact_page"]

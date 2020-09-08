@@ -1,5 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Swiper, SwiperItem } from "@tarojs/components";
+import TaroParser from "taro-parse";
 import { connect } from "@tarojs/redux";
 import "./news.scss";
 
@@ -24,9 +25,19 @@ export default class News extends Component {
             circular
             autoplay
           >
-            {this.props.notices.map((text, index) => (
+            {this.props.notices.reverse().map((text, index) => (
               <SwiperItem key={text}>
-                <View className={`news-${index}`}>{text}</View>
+                <View className={`news-${index}`}>
+                  <TaroParser
+                    type='html'
+                    theme='light'
+                    onLoaded={() => {
+                      Taro.hideLoading();
+                    }}
+                    customClass='infoBox'
+                    content={text}
+                  />
+                </View>
               </SwiperItem>
             ))}
           </Swiper>

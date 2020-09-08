@@ -20,10 +20,10 @@ const iconInfos = [
     icon: "Share",
     title: "分享好友"
   },
-  {
-    icon: "video",
-    title: "相关视频"
-  },
+  // {
+  //   icon: "video",
+  //   title: "学生感言"
+  // },
   {
     icon: "shoucex",
     title: "手册下载"
@@ -69,9 +69,9 @@ export default class Icons extends Component {
       case "Share":
         Taro.showShareMenu({ withShareTicket: true });
         break;
-      case "video":
-        Taro.redirectTo({ url: "/packageVideos/pages/videos/index" });
-        break;
+      // case "video":
+      //   Taro.redirectTo({ url: "/packageVideos/pages/videos/index" });
+      //   break;
       case "shoucex":
         Taro.showLoading({ title: "下载中" });
         Taro.downloadFile({

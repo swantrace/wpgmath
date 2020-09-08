@@ -10,9 +10,23 @@ $color-brand-dark: #910e16;
   height: 300rpx;
 }
 
+.h2w__p {
+  margin: 0;
+}
+
 .h2w__main {
   margin: 0 64rpx;
   padding-top: 20rpx;
+}
+
+.infoBox .h2w__main {
+  margin: 0;
+  padding: 0;
+}
+
+.news-swiper .h2w__main {
+  margin: 0;
+  padding: 0;
 }
 
 .at-accordion__header {
